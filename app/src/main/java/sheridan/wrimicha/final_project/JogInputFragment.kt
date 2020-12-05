@@ -1,4 +1,4 @@
-package sheridan.sharm212.workout
+package sheridan.wrimicha.final_project
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,8 +8,9 @@ import android.view.*
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import sheridan.sharm212.workout.databinding.FragmentJogInputBinding
-import sheridan.sharm212.workout.databinding.FragmentLaunchBinding
+import sheridan.wrimicha.final_project.R
+import sheridan.wrimicha.final_project.databinding.FragmentJogInputBinding
+import sheridan.wrimicha.final_project.databinding.FragmentLaunchBinding
 
 class JogInputFragment : Fragment() {
     private lateinit var binding: FragmentJogInputBinding

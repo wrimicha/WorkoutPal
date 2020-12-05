@@ -1,4 +1,4 @@
-package sheridan.sharm212.workout
+package sheridan.wrimicha.final_project
 
 import android.content.Context
 import androidx.room.Database

@@ -1,4 +1,4 @@
-package sheridan.sharm212.workout
+package sheridan.wrimicha.final_project
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,8 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import sheridan.sharm212.workout.databinding.FragmentJogInputBinding
-import sheridan.sharm212.workout.databinding.FragmentJogOutputBinding
+import sheridan.wrimicha.final_project.R
+import sheridan.wrimicha.final_project.databinding.FragmentJogInputBinding
+import sheridan.wrimicha.final_project.databinding.FragmentJogOutputBinding
 
 class JogOutputFragment : Fragment() {
     private lateinit var binding: FragmentJogOutputBinding
