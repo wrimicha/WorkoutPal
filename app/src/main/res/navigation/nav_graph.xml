@@ -3,26 +3,35 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
-
+    app:startDestination="@id/launchFragment">
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="sheridan.wrimicha.final_project.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
-
+        android:id="@+id/launchFragment"
+        android:name="sheridan.sharm212.workout.LaunchFragment"
+        android:label="fragment_launch"
+        tools:layout="@layout/fragment_launch" >
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_launchFragment_to_jogInputFragment"
+            app:destination="@id/jogInputFragment" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="sheridan.wrimicha.final_project.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
-
+        android:id="@+id/jogInputFragment"
+        android:name="sheridan.sharm212.workout.JogInputFragment"
+        android:label="fragment_jog_input"
+        tools:layout="@layout/fragment_jog_input" >
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_jogInputFragment_to_jogOutputFragment"
+            app:destination="@id/jogOutputFragment" />
+        <action
+            android:id="@+id/action_jogInputFragment_to_launchFragment"
+            app:destination="@id/launchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/jogOutputFragment"
+        android:name="sheridan.sharm212.workout.JogOutputFragment"
+        android:label="fragment_jog_output"
+        tools:layout="@layout/fragment_jog_output" >
+        <action
+            android:id="@+id/action_jogOutputFragment_to_launchFragment"
+            app:destination="@id/launchFragment" />
     </fragment>
 </navigation>
