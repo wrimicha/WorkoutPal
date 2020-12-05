@@ -6,7 +6,7 @@
     app:startDestination="@id/launchFragment">
     <fragment
         android:id="@+id/launchFragment"
-        android:name="sheridan.sharm212.workout.LaunchFragment"
+        android:name="sheridan.wrimicha.final_project.LaunchFragment"
         android:label="fragment_launch"
         tools:layout="@layout/fragment_launch" >
         <action
@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/jogInputFragment"
-        android:name="sheridan.sharm212.workout.JogInputFragment"
+        android:name="sheridan.wrimicha.final_project.JogInputFragment"
         android:label="fragment_jog_input"
         tools:layout="@layout/fragment_jog_input" >
         <action
@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/jogOutputFragment"
-        android:name="sheridan.sharm212.workout.JogOutputFragment"
+        android:name="sheridan.wrimicha.final_project.JogOutputFragment"
         android:label="fragment_jog_output"
         tools:layout="@layout/fragment_jog_output" >
         <action
