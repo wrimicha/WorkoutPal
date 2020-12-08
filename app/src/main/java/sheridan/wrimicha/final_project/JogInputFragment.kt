@@ -38,9 +38,9 @@ val jog = JogData(binding.kmsJogged.text.toString())
             findNavController().navigate(R.id.action_jogInputFragment_to_launchFragment)
 
         }
-       // binding.lifecycleOwner = viewLifecycleOwner
-       // binding.viewModel = viewModel
-        // Inflate the layout for this fragment
+     //   binding.lifecycleOwner = viewLifecycleOwner
+      //  binding.viewModel = viewModel
+
         return binding.root
     }
 

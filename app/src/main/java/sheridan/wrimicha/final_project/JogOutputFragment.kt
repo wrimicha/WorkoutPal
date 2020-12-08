@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import sheridan.wrimicha.final_project.R
 import sheridan.wrimicha.final_project.databinding.FragmentJogInputBinding
@@ -12,7 +13,7 @@ import sheridan.wrimicha.final_project.databinding.FragmentJogOutputBinding
 
 class JogOutputFragment : Fragment() {
     private lateinit var binding: FragmentJogOutputBinding
-
+    private val viewModel : JogViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +25,8 @@ class JogOutputFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentJogOutputBinding.inflate(inflater, container, false)
-
+        binding.lifecycleOwner = viewLifecycleOwner
+        binding.viewModel = viewModel
         binding.backOut.setOnClickListener {
             findNavController().navigate(R.id.action_jogOutputFragment_to_launchFragment)
 

@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase
 @Database(entities = [Jog::class], version = 1, exportSchema = false)
 abstract class JogDatabase: RoomDatabase(){
 
-    abstract val rollerDao: JogDao
+    abstract val jogDao: JogDao
 
     companion object{
 
