@@ -9,13 +9,13 @@ import java.util.*
 class BenchViewModel (application: Application) : AndroidViewModel(application) {
 
     //private val _pets = MutableLiveData
-    var benchLiveData: LiveData<BenchEntity> = null
+    var benchLiveData: LiveData<BenchEntity>? = null
 
     fun addData(
         id: Long,
         weight: Double,
-        reps: Int,
-        sets: Int,
+        reps: Double,
+        sets: Double,
         date: Date
     ){
 
