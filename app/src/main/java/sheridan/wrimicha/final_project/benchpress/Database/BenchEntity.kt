@@ -35,8 +35,8 @@ data class BenchEntity(
     @ColumnInfo(name = "sets")
     val rating: Double,
 
-    @ColumnInfo(name = "date")
-    val date: Date = Date(),
+//    @ColumnInfo(name = "date")
+//    val date: Date = Date(),
 
     @PrimaryKey(autoGenerate = true)
     var id: Long = 0L

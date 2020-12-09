@@ -21,6 +21,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
+import sheridan.wrimicha.final_project.Jog
 
 /**
  * The Data Access Object used to retrieve and store data from/to the underlying database.
@@ -29,18 +30,19 @@ import androidx.room.Update
  */
 @Dao
 interface BenchDao {
+
     @Query("SELECT * FROM bench")
     fun getAll(): LiveData<List<BenchEntity>>
 
-    @Query("SELECT * FROM bench WHERE id = :id")
-    suspend fun get(id: Long): BenchEntity
+//    @Query("SELECT * FROM bench WHERE id = :id")
+//    suspend fun get(id: Long): BenchEntity
 
     @Insert
-    suspend fun insert(donut: BenchEntity): Long
+    suspend fun insert(bench: BenchEntity): Long
 
     @Delete
     suspend fun delete(donut: BenchEntity)
 
-    @Update
-    suspend fun update(donut: BenchEntity)
+//    @Update
+//    suspend fun update(donut: BenchEntity)
 }
