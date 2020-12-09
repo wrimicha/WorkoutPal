@@ -18,7 +18,7 @@ class JogInputFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        setHasOptionsMenu(true)
     }
 
     override fun onCreateView(
@@ -44,5 +44,21 @@ val jog = JogData(binding.kmsJogged.text.toString())
         return binding.root
     }
 
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.menu_jog, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        return when(item.itemId) {
+            R.id.action_history -> {
+                findNavController().navigate(R.id.action_global_to_history)
+                true
+            }
+            else-> super.onOptionsItemSelected(item)
+        }
+    }
 
 }
