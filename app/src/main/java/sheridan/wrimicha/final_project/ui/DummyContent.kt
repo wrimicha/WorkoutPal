@@ -1,4 +1,4 @@
-package sheridan.wrimicha.final_project.dummy
+package sheridan.wrimicha.final_project.ui
 
 import java.util.ArrayList
 import java.util.HashMap
