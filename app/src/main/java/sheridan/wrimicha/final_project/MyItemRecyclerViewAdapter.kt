@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 
-import sheridan.wrimicha.final_project.ui.DummyContent.DummyItem
+import sheridan.wrimicha.final_project.DummyContent.DummyItem
 
 /**
  * [RecyclerView.Adapter] that can display a [DummyItem].
