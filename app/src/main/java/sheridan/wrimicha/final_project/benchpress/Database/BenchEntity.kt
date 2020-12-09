@@ -18,6 +18,7 @@ package com.android.samples.donuttracker.database
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.util.*
 
 /**
  * This class holds the data that we are tracking for each donut: its name, a description, and
@@ -28,15 +29,15 @@ data class BenchEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Long,
 
-    @ColumnInfo(name = "name")
-    val name: String,
+    @ColumnInfo(name = "weight")
+    val weight: Double,
 
-    @ColumnInfo(name = "description")
-    val description: String = "",
+    @ColumnInfo(name = "reps")
+    val reps: Double,
 
-    @ColumnInfo(name = "rating")
-    val rating: Int,
+    @ColumnInfo(name = "sets")
+    val rating: Double,
 
-    @ColumnInfo(name = "low_fat")
-    val lowFat: Boolean = false
+    @ColumnInfo(name = "date")
+    val date: Date = Date(),
 )

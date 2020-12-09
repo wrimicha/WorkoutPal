@@ -9,11 +9,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import sheridan.wrimicha.final_project.R
+import sheridan.wrimicha.final_project.databinding.FragmentBenchInputBinding
 import sheridan.wrimicha.final_project.databinding.FragmentJogInputBinding
 import sheridan.wrimicha.final_project.databinding.FragmentLaunchBinding
+import java.lang.Double.parseDouble
 
 class BenchInputFragment : Fragment() {
-    private lateinit var binding: FragmentJogInputBinding
+    private lateinit var binding: FragmentBenchInputBinding
     private val viewModel: BenchViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,21 +27,24 @@ class BenchInputFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentJogInputBinding.inflate(inflater, container, false)
-        binding.saveJog.setOnClickListener {
+        binding = FragmentBenchInputBinding.inflate(inflater, container, false)
+        binding.send.setOnClickListener { save() }
 
-
-            findNavController().navigate(R.id.action_jogInputFragment_to_jogOutputFragment)
-        }
-        binding.backIn.setOnClickListener {
+        binding.back.setOnClickListener {
             findNavController().navigate(R.id.action_jogInputFragment_to_launchFragment)
 
         }
-     //   binding.lifecycleOwner = viewLifecycleOwner
-      //  binding.viewModel = viewModel
-
         return binding.root
     }
 
+    private fun save() {
+        var weight = parseDouble(binding.weightUsed.toString())
+        var reps = parseDouble(binding.weightUsed.toString())
+        var sets = parseDouble(binding.weightUsed.toString())
+        //var date = parseDouble(binding.weightUsed.toString())
 
+        viewModel.addData(weight, reps, sets)
+    }
+     //   binding.lifecycleOwner = viewLifecycleOwner
+      //  binding.viewModel = viewModel
 }
