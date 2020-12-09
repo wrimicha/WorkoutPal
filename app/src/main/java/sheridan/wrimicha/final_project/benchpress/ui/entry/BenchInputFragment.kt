@@ -8,6 +8,7 @@ import android.view.*
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.android.samples.donuttracker.database.BenchEntity
 import sheridan.wrimicha.final_project.R
 import sheridan.wrimicha.final_project.databinding.FragmentBenchInputBinding
 import sheridan.wrimicha.final_project.databinding.FragmentJogInputBinding
@@ -43,7 +44,7 @@ class BenchInputFragment : Fragment() {
         var sets = parseDouble(binding.weightUsed.toString())
         //var date = parseDouble(binding.weightUsed.toString())
 
-        viewModel.addData(weight, reps, sets)
+        viewModel.addData(BenchEntity(weight, reps, sets))
     }
      //   binding.lifecycleOwner = viewLifecycleOwner
       //  binding.viewModel = viewModel

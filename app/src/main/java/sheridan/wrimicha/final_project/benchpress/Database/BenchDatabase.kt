@@ -20,30 +20,29 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-/**
- * The underlying database where information about the donuts is stored.
- */
-@Database(entities = [BenchEntity::class], version = 1)
-abstract class BenchDatabase : RoomDatabase() {
+@Database(entities = [BenchEntity::class], version = 1, exportSchema = false)
+abstract class BenchDatabase: RoomDatabase(){
 
-    abstract fun donutDao(): BenchDao
+    abstract val benchDao: BenchDao
 
-    companion object {
-        @Volatile private var INSTANCE: BenchDatabase? = null
+    companion object{
 
-        fun getDatabase(context: Context): BenchDatabase {
-            val tempInstance =
-                INSTANCE
-            if (tempInstance != null) {
-                return tempInstance
-            }
+        @Volatile
+        private var INSTANCE: BenchDatabase? = null
+
+        fun getInstance(context: Context): BenchDatabase {
+
             synchronized(this) {
-                val instance = Room.databaseBuilder(
-                    context,
-                    BenchDatabase::class.java,
-                    "donut_database"
-                ).build()
-                INSTANCE = instance
+                var instance = INSTANCE
+                if (instance == null) {
+                    instance = Room.databaseBuilder(
+                        context.applicationContext,
+                        BenchDatabase::class.java,
+                        "bench_database"
+                    ).fallbackToDestructiveMigration().build()
+
+                    INSTANCE = instance
+                }
                 return instance
             }
         }
