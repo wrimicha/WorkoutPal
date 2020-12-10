@@ -2,9 +2,14 @@ package sheridan.wrimicha.final_project.benchpress.ui.entry
 
 import android.app.Application
 import androidx.lifecycle.*
+import sheridan.wrimicha.final_project.BenchDatabase
+import sheridan.wrimicha.final_project.BenchDao
+import sheridan.wrimicha.final_project.BenchEntity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import sheridan.wrimicha.final_project.*
+import sheridan.wrimicha.final_project.JogDao
+import sheridan.wrimicha.final_project.JogData
+import sheridan.wrimicha.final_project.JogDatabase
 import sheridan.wrimicha.final_project.benchpress.domain.BenchData
 //import sheridan.wrimicha.final_project.benchpress.domain.BenchData
 import java.util.*
@@ -25,7 +30,7 @@ class BenchViewModel (application: Application) : AndroidViewModel(application) 
         viewModelScope.launch(Dispatchers.IO){
             //val envelopeId = benchDao.insert(benchEntity)
             benchDao.insert(benchEntity)
-            var benchValues = BenchData(
+            val benchValues = BenchData(
                 benchEntity.weight,
                 benchEntity.reps,
                 benchEntity.sets,
