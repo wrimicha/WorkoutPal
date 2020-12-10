@@ -10,6 +10,7 @@ import kotlinx.coroutines.launch
 import sheridan.wrimicha.final_project.JogDao
 import sheridan.wrimicha.final_project.JogData
 import sheridan.wrimicha.final_project.JogDatabase
+import sheridan.wrimicha.final_project.benchpress.domain.BenchData
 //import sheridan.wrimicha.final_project.benchpress.domain.BenchData
 import java.util.*
 
@@ -19,8 +20,8 @@ class BenchViewModel (application: Application) : AndroidViewModel(application) 
 //    //private val _pets = MutableLiveData
 //    var benchLiveData: LiveData<BenchEntity>? = null
 //
-//    private val _benchData: MutableLiveData<BenchData> = MutableLiveData()
-//    val benchData: LiveData<BenchData> = _benchData
+    private val _benchData: MutableLiveData<BenchData> = MutableLiveData()
+    val benchData: LiveData<BenchData> = _benchData
 
     private val benchDao: BenchDao =
         BenchDatabase.getInstance(application).benchDao
@@ -29,7 +30,13 @@ class BenchViewModel (application: Application) : AndroidViewModel(application) 
         viewModelScope.launch(Dispatchers.IO){
             //val envelopeId = benchDao.insert(benchEntity)
             benchDao.insert(benchEntity)
-            //_status.postValue(Status.SAVED_DATA)
+            var benchValues = BenchData(
+                benchEntity.weight,
+                benchEntity.reps,
+                benchEntity.sets,
+                benchEntity.id
+            )
+            _benchData.value = benchValues
         }
     }
 }

@@ -40,8 +40,8 @@ class BenchInputFragment : Fragment() {
 
     private fun save() {
         val weight = parseDouble(binding.weightUsed.toString())
-        val reps = parseDouble(binding.weightUsed.toString())
-        val sets = parseDouble(binding.weightUsed.toString())
+        val reps = parseDouble(binding.reps.toString())
+        val sets = parseDouble(binding.sets.toString())
         //var date = parseDouble(binding.weightUsed.toString())
 
         viewModel.addData(BenchEntity(weight, reps, sets))

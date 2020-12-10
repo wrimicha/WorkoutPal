@@ -33,7 +33,7 @@ data class BenchEntity(
     val reps: Double,
 
     @ColumnInfo(name = "sets")
-    val rating: Double,
+    val sets: Double,
 
 //    @ColumnInfo(name = "date")
 //    val date: Date = Date(),
