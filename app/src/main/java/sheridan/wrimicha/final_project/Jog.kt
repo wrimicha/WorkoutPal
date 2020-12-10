@@ -12,4 +12,8 @@ data class Jog(
     @ColumnInfo(name = "kms")
     val value: String,
 
+    val year: Int,
+    val month: Int,
+    val day: Int
+
 )
