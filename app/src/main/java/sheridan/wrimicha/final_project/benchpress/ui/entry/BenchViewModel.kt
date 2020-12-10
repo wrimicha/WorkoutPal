@@ -2,9 +2,9 @@ package sheridan.wrimicha.final_project.benchpress.ui.entry
 
 import android.app.Application
 import androidx.lifecycle.*
-import com.android.samples.donuttracker.database.BenchDao
-import com.android.samples.donuttracker.database.BenchDatabase
-import com.android.samples.donuttracker.database.BenchEntity
+import sheridan.wrimicha.final_project.BenchDatabase
+import sheridan.wrimicha.final_project.BenchDao
+import sheridan.wrimicha.final_project.BenchEntity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import sheridan.wrimicha.final_project.JogDao
@@ -30,7 +30,7 @@ class BenchViewModel (application: Application) : AndroidViewModel(application) 
         viewModelScope.launch(Dispatchers.IO){
             //val envelopeId = benchDao.insert(benchEntity)
             benchDao.insert(benchEntity)
-            var benchValues = BenchData(
+            val benchValues = BenchData(
                 benchEntity.weight,
                 benchEntity.reps,
                 benchEntity.sets,
