@@ -21,14 +21,14 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/name"
+                    android:id="@+id/benchLabel"
                     android:layout_marginStart="40dp"
                     android:layout_marginTop="12dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                     tools:text="@string/bench_press" />
 
                 <TextView
-                    android:id="@+id/textView25"
+                    android:id="@+id/weightLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
@@ -36,7 +36,7 @@
                     android:text="@string/weight" />
 
                 <TextView
-                    android:id="@+id/textView32"
+                    android:id="@+id/repsLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
@@ -44,7 +44,7 @@
                     android:text="@string/reps" />
 
                 <TextView
-                    android:id="@+id/textView33"
+                    android:id="@+id/setsLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
@@ -57,14 +57,14 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/animal"
+                    android:id="@+id/date"
                     android:layout_marginStart="40dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="6dp"
                     tools:text="TextView" />
 
                 <TextView
-                    android:id="@+id/textView26"
+                    android:id="@+id/weight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
@@ -73,7 +73,7 @@
                     android:text="TextView" />
 
                 <TextView
-                    android:id="@+id/textView34"
+                    android:id="@+id/reps"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
@@ -82,7 +82,7 @@
                     android:text="TextView" />
 
                 <TextView
-                    android:id="@+id/textView35"
+                    android:id="@+id/sets"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
