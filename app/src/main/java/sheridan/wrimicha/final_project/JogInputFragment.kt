@@ -16,6 +16,10 @@ class JogInputFragment : Fragment() {
     private lateinit var binding: FragmentJogInputBinding
     private val viewModel: JogViewModel by activityViewModels()
 
+    var year1 :Int=0
+    var month1 :Int=0
+    var dayOfMonth1 :Int=0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
@@ -26,6 +30,18 @@ class JogInputFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentJogInputBinding.inflate(inflater, container, false)
+
+        //Test code
+
+        binding.calendarView.setOnDateChangeListener { view, year, month, dayOfMonth ->
+            year1=year
+            month1=month
+            dayOfMonth1=dayOfMonth
+        }
+
+        //Test ends
+
+
         binding.saveJog.setOnClickListener {
 
 val jog = JogData(binding.kmsJogged.text.toString())
