@@ -4,12 +4,9 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.observe
 import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.RecyclerView
-import sheridan.wrimicha.final_project.R
-import sheridan.wrimicha.final_project.dummy.DummyContent
 import sheridan.wrimicha.final_project.databinding.FragmentHistoryBinding
-import sheridan.wrimicha.final_project.HistoryViewModel
 
 /**
  * A fragment representing a list of Items.
