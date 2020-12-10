@@ -8,10 +8,12 @@
     </data>
 
     <LinearLayout
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:name="sheridan.wrimicha.final_project.HistoryFragment"
         android:orientation="vertical"
+        android:layout_marginTop="56dp"
         tools:context=".HistoryFragment">
 
         <androidx.recyclerview.widget.RecyclerView

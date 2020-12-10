@@ -1,16 +1,12 @@
 package sheridan.wrimicha.final_project
 
 import android.content.Context
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import sheridan.wrimicha.final_project.R
-import sheridan.wrimicha.final_project.Jog
-
+import androidx.recyclerview.widget.RecyclerView
 import sheridan.wrimicha.final_project.dummy.DummyContent.DummyItem
-import java.nio.file.Files.size
 
 /**
  * [RecyclerView.Adapter] that can display a [DummyItem].
@@ -34,7 +30,6 @@ class HistoryRecyclerViewAdapter(private val context: Context) : RecyclerView.Ad
         val jog = history!![position]
         holder.idView.text = "${position + 1}."
         holder.rollValueHistory1.text = jog.value
-
     }
 
     override fun getItemCount(): Int = history?.size ?: 0
