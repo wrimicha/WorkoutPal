@@ -8,7 +8,7 @@ import android.view.*
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import com.android.samples.donuttracker.database.BenchEntity
+import sheridan.wrimicha.final_project.BenchEntity
 import sheridan.wrimicha.final_project.R
 import sheridan.wrimicha.final_project.databinding.FragmentBenchInputBinding
 import sheridan.wrimicha.final_project.databinding.FragmentJogInputBinding

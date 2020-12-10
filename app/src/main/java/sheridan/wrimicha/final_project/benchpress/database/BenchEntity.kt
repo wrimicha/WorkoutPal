@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.android.samples.donuttracker.database
+package sheridan.wrimicha.final_project
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

@@ -2,14 +2,9 @@ package sheridan.wrimicha.final_project.benchpress.ui.entry
 
 import android.app.Application
 import androidx.lifecycle.*
-import com.android.samples.donuttracker.database.BenchDao
-import com.android.samples.donuttracker.database.BenchDatabase
-import com.android.samples.donuttracker.database.BenchEntity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import sheridan.wrimicha.final_project.JogDao
-import sheridan.wrimicha.final_project.JogData
-import sheridan.wrimicha.final_project.JogDatabase
+import sheridan.wrimicha.final_project.*
 import sheridan.wrimicha.final_project.benchpress.domain.BenchData
 //import sheridan.wrimicha.final_project.benchpress.domain.BenchData
 import java.util.*

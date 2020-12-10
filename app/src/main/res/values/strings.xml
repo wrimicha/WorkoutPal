@@ -19,5 +19,9 @@
     <string name="plus">+</string>
     <string name="Equals">=</string>
     <string name="history_fragment_label">History</string>
+    <string name="bench_press">Bench Press</string>
+    <string name="weight">Weight:</string>
+    <string name="reps">Reps:</string>
+    <string name="sets">Sets:</string>
 
 </resources>
