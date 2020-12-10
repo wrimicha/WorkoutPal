@@ -30,6 +30,9 @@ class HistoryRecyclerViewAdapter(private val context: Context) : RecyclerView.Ad
         val jog = history!![position]
         holder.idView.text = "${position + 1}."
         holder.rollValueHistory1.text = jog.value
+        holder.yearValue.text = jog.year.toString()
+        holder.monthValue.text = jog.month.toString()
+        holder.dayValue.text = jog.day.toString()
     }
 
     override fun getItemCount(): Int = history?.size ?: 0
@@ -38,6 +41,8 @@ class HistoryRecyclerViewAdapter(private val context: Context) : RecyclerView.Ad
         val idView: TextView = view.findViewById(R.id.item_number)
         val contentView: TextView = view.findViewById(R.id.rollValueHistory1)
         val rollValueHistory1 : TextView = view.findViewById(R.id.rollValueHistory1)
-
+        val yearValue : TextView = view.findViewById(R.id.yearValue)
+        val monthValue : TextView = view.findViewById(R.id.monthValue)
+        val dayValue : TextView = view.findViewById(R.id.dayValue)
     }
 }
