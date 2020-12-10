@@ -20,6 +20,18 @@
             android:layout_height="wrap_content"
             android:text="@{viewModel.jogData.kms}" />
 
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date:" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{Integer.toString(viewModel.jogData.year) +'/'+ Integer.toString(viewModel.jogData.month) +'/'+ Integer.toString(viewModel.jogData.day)}" />
+
         <Button
             android:id="@+id/backOut"
             android:layout_width="wrap_content"
