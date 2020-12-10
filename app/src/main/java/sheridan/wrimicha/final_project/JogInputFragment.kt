@@ -56,7 +56,7 @@ val dayOfMonthCurrent = c.get(Calendar.DAY_OF_MONTH)
                 dayOfMonth1 = dayOfMonthCurrent
             }
 
-val jog = JogData(binding.kmsJogged.text.toString(),year1,month1,dayOfMonth1)
+val jog = JogData(binding.kmsJogged.text.toString(),year1,month1,dayOfMonth1,binding.duration.text.toString())
             viewModel.submit(jog)
 
 

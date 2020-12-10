@@ -11,9 +11,12 @@ data class Jog(
 
     @ColumnInfo(name = "kms")
     val value: String,
-
+    @ColumnInfo(name = "year")
     val year: Int,
+    @ColumnInfo(name = "month")
     val month: Int,
-    val day: Int
-
+    @ColumnInfo(name = "day")
+    val day: Int,
+    @ColumnInfo(name = "duration")
+val duration : String
 )
