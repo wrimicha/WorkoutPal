@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import sheridan.wrimicha.final_project.R
 import sheridan.wrimicha.final_project.databinding.FragmentJogInputBinding
 import sheridan.wrimicha.final_project.databinding.FragmentLaunchBinding
+import java.util.*
 
 class JogInputFragment : Fragment() {
     private lateinit var binding: FragmentJogInputBinding
@@ -19,6 +20,7 @@ class JogInputFragment : Fragment() {
     var year1 :Int=0
     var month1 :Int=0
     var dayOfMonth1 :Int=0
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,10 +34,14 @@ class JogInputFragment : Fragment() {
         binding = FragmentJogInputBinding.inflate(inflater, container, false)
 
         //Test code
+        val c = Calendar.getInstance()
+val yearCurrent = c.get(Calendar.YEAR)
+val monthCurrent = c.get(Calendar.MONTH)
+val dayOfMonthCurrent = c.get(Calendar.DAY_OF_MONTH)
 
         binding.calendarView.setOnDateChangeListener { view, year, month, dayOfMonth ->
             year1=year
-            month1=month
+            month1=month+1
             dayOfMonth1=dayOfMonth
         }
 
@@ -44,7 +50,13 @@ class JogInputFragment : Fragment() {
 
         binding.saveJog.setOnClickListener {
 
-val jog = JogData(binding.kmsJogged.text.toString())
+            if(year1==0 && month1==0 && dayOfMonth1==0){
+               year1 = yearCurrent
+                month1 = monthCurrent+1
+                dayOfMonth1 = dayOfMonthCurrent
+            }
+
+val jog = JogData(binding.kmsJogged.text.toString(),year1,month1,dayOfMonth1)
             viewModel.submit(jog)
 
 
