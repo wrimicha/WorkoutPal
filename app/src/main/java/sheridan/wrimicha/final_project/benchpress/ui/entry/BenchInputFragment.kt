@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.*
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import sheridan.wrimicha.final_project.BenchEntity
@@ -54,17 +55,42 @@ class BenchInputFragment : Fragment() {
                 dayOfMonth1 = dayOfMonthCurrent
             }
 
-            val weight = binding.weightUsed.text.toString()
-            val reps = binding.reps.text.toString()
-            val sets = binding.sets.text.toString()
-            //var date = parseDouble(binding.weightUsed.toString())
+            if(binding.weightUsed.text.isEmpty()){
+                val required = getString(R.string.required)
+                binding.weightUsed.error = required
+                Toast.makeText(context, required, Toast.LENGTH_LONG).show()
+            }
+            else{
+            if(binding.reps.text.isEmpty()){
+                val required = getString(R.string.required)
+                binding.reps.error = required
+                Toast.makeText(context, required, Toast.LENGTH_LONG).show()
+            }
+                else{
+if(binding.sets.text.isEmpty()){
+    val required = getString(R.string.required)
+    binding.sets.error = required
+    Toast.makeText(context, required, Toast.LENGTH_LONG).show()
+}
+else {
+    val weight = binding.weightUsed.text.toString()
+    val reps = binding.reps.text.toString()
+    val sets = binding.sets.text.toString()
+    //var date = parseDouble(binding.weightUsed.toString())
 
-            viewModel.addData(BenchData(weight, reps, sets,year1,
-                month1,
-                dayOfMonth1,))
-            findNavController().navigate(R.id.action_benchInputFragment_to_benchOutputFragment)
+    viewModel.addData(
+        BenchData(
+            weight, reps, sets, year1,
+            month1,
+            dayOfMonth1,
+        )
+    )
+    findNavController().navigate(R.id.action_benchInputFragment_to_benchOutputFragment)
+}
 
-        }
+            }
+
+        }}
 
         binding.back.setOnClickListener {
             findNavController().navigate(R.id.action_benchInputFragment_to_launchFragment)
