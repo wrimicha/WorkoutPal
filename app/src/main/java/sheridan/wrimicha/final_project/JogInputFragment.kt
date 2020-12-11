@@ -33,7 +33,7 @@ class JogInputFragment : Fragment() {
     ): View? {
         binding = FragmentJogInputBinding.inflate(inflater, container, false)
 
-        //Test code
+
         val c = Calendar.getInstance()
 val yearCurrent = c.get(Calendar.YEAR)
 val monthCurrent = c.get(Calendar.MONTH)
@@ -45,7 +45,7 @@ val dayOfMonthCurrent = c.get(Calendar.DAY_OF_MONTH)
             dayOfMonth1=dayOfMonth
         }
 
-        //Test ends
+
 
 
         binding.saveJog.setOnClickListener {
