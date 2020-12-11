@@ -3,50 +3,62 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-<LinearLayout
+<androidx.core.widget.NestedScrollView
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical"
-    tools:context=".LaunchFragment">
+    android:layout_height="match_parent">
 
-    <!-- TODO: Update blank fragment layout -->
-
-    <Button
-        android:id="@+id/jogging"
-        android:layout_width="115dp"
-        android:layout_height="112dp"
-        android:layout_marginTop="68dp"
-        android:background="@drawable/running"
-        android:backgroundTint="#000000" />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Jogging"
-        android:textSize="24sp"
-        android:textStyle="bold" />
-
-    <View
-        android:id="@+id/divider"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="66dp"
-        android:background="@color/white" />
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:context=".LaunchFragment">
 
-    <Button
-        android:id="@+id/benchPressLaunch"
-        android:layout_width="140dp"
-        android:layout_height="136dp"
-        android:background="@drawable/weightlifting" />
+        <!-- TODO: Update blank fragment layout -->
 
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Bench Press"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="?android:attr/listDivider"
+            android:backgroundTint="#FFFFFF" />
 
-</LinearLayout>
+        <Button
+            android:id="@+id/jogging"
+            android:layout_width="115dp"
+            android:layout_height="112dp"
+            android:layout_marginTop="68dp"
+            android:background="@drawable/running"
+            android:backgroundTint="#000000" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jogging"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="77dp"
+            android:background="@color/white" />
+
+        <Button
+            android:id="@+id/benchPressLaunch"
+            android:layout_width="140dp"
+            android:layout_height="136dp"
+            android:background="@drawable/weightlifting" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bench Press"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
 </layout>
