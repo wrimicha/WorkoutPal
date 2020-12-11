@@ -46,7 +46,11 @@
         android:id="@+id/benchListFragment"
         android:name="sheridan.wrimicha.final_project.benchpress.ui.list.BenchListFragment"
         android:label="bench_list_fragment"
-        tools:layout="@layout/bench_list_fragment" />
+        tools:layout="@layout/bench_list_fragment" >
+        <action
+            android:id="@+id/action_benchListFragment_to_benchInputFragment"
+            app:destination="@id/benchInputFragment" />
+    </fragment>
     <fragment
         android:id="@+id/benchInputFragment"
         android:name="sheridan.wrimicha.final_project.benchpress.ui.entry.BenchInputFragment"

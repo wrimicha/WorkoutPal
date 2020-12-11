@@ -6,7 +6,9 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.observe
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
+import sheridan.wrimicha.final_project.HistoryFragmentDirections
 import sheridan.wrimicha.final_project.HistoryRecyclerViewAdapter
 import sheridan.wrimicha.final_project.HistoryViewModel
 import sheridan.wrimicha.final_project.R
@@ -23,6 +25,15 @@ class BenchListFragment : Fragment() {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
     }
+
+    private val adapter = BenchListAdapter(
+        onEdit = { bench ->
+            findNavController().navigate(BenchListFragmentDirections.actionBenchListFragmentToBenchInputFragment(bench.id))
+        },
+        onDelete = { bench ->
+            viewModel.delete(bench)
+        }
+    )
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
