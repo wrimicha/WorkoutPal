@@ -54,5 +54,16 @@
         <action
             android:id="@+id/action_benchInputFragment_to_launchFragment"
             app:destination="@id/launchFragment" />
+        <action
+            android:id="@+id/action_benchInputFragment_to_benchOutputFragment"
+            app:destination="@id/benchOutputFragment" />
     </fragment><action android:id="@+id/action_global_benchListFragment" app:destination="@id/benchListFragment"/>
+    <fragment
+        android:id="@+id/benchOutputFragment"
+        android:name="sheridan.wrimicha.final_project.benchpress.ui.entry.BenchOutputFragment"
+        android:label="BenchOutputFragment" >
+        <action
+            android:id="@+id/action_benchOutputFragment_to_launchFragment"
+            app:destination="@id/launchFragment" />
+    </fragment>
 </navigation>

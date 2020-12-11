@@ -46,6 +46,7 @@ class BenchInputFragment : Fragment() {
         //var date = parseDouble(binding.weightUsed.toString())
 
         viewModel.addData(BenchData(weight, reps, sets))
+        findNavController().navigate(R.id.action_benchInputFragment_to_benchOutputFragment)
     }
      //   binding.lifecycleOwner = viewLifecycleOwner
       //  binding.viewModel = viewModel
