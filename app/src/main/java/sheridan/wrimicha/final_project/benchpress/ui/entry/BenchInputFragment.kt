@@ -15,10 +15,15 @@ import sheridan.wrimicha.final_project.databinding.FragmentBenchInputBinding
 import sheridan.wrimicha.final_project.databinding.FragmentJogInputBinding
 import sheridan.wrimicha.final_project.databinding.FragmentLaunchBinding
 import java.lang.Double.parseDouble
+import java.util.*
 
 class BenchInputFragment : Fragment() {
     private lateinit var binding: FragmentBenchInputBinding
     private val viewModel: BenchViewModel by activityViewModels()
+
+    var year1 :Int=0
+    var month1 :Int=0
+    var dayOfMonth1 :Int=0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +35,36 @@ class BenchInputFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentBenchInputBinding.inflate(inflater, container, false)
-        binding.send.setOnClickListener { save() }
+        val c = Calendar.getInstance()
+        val yearCurrent = c.get(Calendar.YEAR)
+        val monthCurrent = c.get(Calendar.MONTH)
+        val dayOfMonthCurrent = c.get(Calendar.DAY_OF_MONTH)
+
+        binding.calendarView2.setOnDateChangeListener { view, year, month, dayOfMonth ->
+            year1=year
+            month1=month+1
+            dayOfMonth1=dayOfMonth
+        }
+
+        binding.send.setOnClickListener {
+
+            if(year1==0 && month1==0 && dayOfMonth1==0){
+                year1 = yearCurrent
+                month1 = monthCurrent+1
+                dayOfMonth1 = dayOfMonthCurrent
+            }
+
+            val weight = binding.weightUsed.text.toString()
+            val reps = binding.reps.text.toString()
+            val sets = binding.sets.text.toString()
+            //var date = parseDouble(binding.weightUsed.toString())
+
+            viewModel.addData(BenchData(weight, reps, sets,year1,
+                month1,
+                dayOfMonth1,))
+            findNavController().navigate(R.id.action_benchInputFragment_to_benchOutputFragment)
+
+        }
 
         binding.back.setOnClickListener {
             findNavController().navigate(R.id.action_benchInputFragment_to_launchFragment)
@@ -39,15 +73,7 @@ class BenchInputFragment : Fragment() {
         return binding.root
     }
 
-    private fun save() {
-        val weight = binding.weightUsed.text.toString()
-        val reps = binding.reps.text.toString()
-        val sets = binding.sets.text.toString()
-        //var date = parseDouble(binding.weightUsed.toString())
 
-        viewModel.addData(BenchData(weight, reps, sets))
-        findNavController().navigate(R.id.action_benchInputFragment_to_benchOutputFragment)
-    }
      //   binding.lifecycleOwner = viewLifecycleOwner
       //  binding.viewModel = viewModel
 }

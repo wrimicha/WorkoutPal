@@ -37,7 +37,13 @@ data class BenchEntity(
     val reps: String,
 
     @ColumnInfo(name = "sets")
-    val sets: String
+    val sets: String,
+        @ColumnInfo(name = "year")
+        val year: Int,
+        @ColumnInfo(name = "month")
+        val month: Int,
+        @ColumnInfo(name = "day")
+        val day: Int
 
 //    @ColumnInfo(name = "date")
 //    val date: Date = Date(),
