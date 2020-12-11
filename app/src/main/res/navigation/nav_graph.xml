@@ -7,8 +7,8 @@
     <fragment
         android:id="@+id/launchFragment"
         android:name="sheridan.wrimicha.final_project.LaunchFragment"
-        android:label="fragment_launch"
-        tools:layout="@layout/fragment_launch" >
+        android:label="Workout App"
+        tools:layout="@layout/fragment_launch">
         <action
             android:id="@+id/action_launchFragment_to_jogInputFragment"
             app:destination="@id/jogInputFragment" />
@@ -19,8 +19,8 @@
     <fragment
         android:id="@+id/jogInputFragment"
         android:name="sheridan.wrimicha.final_project.JogInputFragment"
-        android:label="fragment_jog_input"
-        tools:layout="@layout/fragment_jog_input" >
+        android:label="Jogging Data Input"
+        tools:layout="@layout/fragment_jog_input">
         <action
             android:id="@+id/action_jogInputFragment_to_jogOutputFragment"
             app:destination="@id/jogOutputFragment" />
@@ -31,8 +31,8 @@
     <fragment
         android:id="@+id/jogOutputFragment"
         android:name="sheridan.wrimicha.final_project.JogOutputFragment"
-        android:label="fragment_jog_output"
-        tools:layout="@layout/fragment_jog_output" >
+        android:label="Jogging Data Output"
+        tools:layout="@layout/fragment_jog_output">
         <action
             android:id="@+id/action_jogOutputFragment_to_launchFragment"
             app:destination="@id/launchFragment" />
@@ -40,7 +40,7 @@
     <fragment
         android:id="@+id/historyFragment"
         android:name="sheridan.wrimicha.final_project.HistoryFragment"
-        android:label="@string/history_fragment_label" />
+        android:label="Jogging Journal" />
     <action android:id="@+id/action_global_to_history" app:destination="@id/historyFragment" />
     <fragment
         android:id="@+id/benchListFragment"
