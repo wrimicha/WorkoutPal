@@ -19,8 +19,18 @@ class BenchViewModel (application: Application) : AndroidViewModel(application) 
     private val _benchData: MutableLiveData<BenchData> = MutableLiveData()
     val benchData: LiveData<BenchData> = _benchData
 
+    private var benchLiveData: LiveData<BenchEntity>? = null
+
     private val benchDao: BenchDao =
         BenchDatabase.getInstance(application).benchDao
+
+    fun get(id: Long): LiveData<BenchEntity> {
+        return benchLiveData ?: liveData {
+            emit(benchDao.get(id))
+        }.also {
+            benchLiveData = it
+        }
+    }
 
     fun addData(benchEntity: BenchData){
 

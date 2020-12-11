@@ -8,7 +8,9 @@ import android.view.*
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import sheridan.wrimicha.final_project.BenchEntity
 import sheridan.wrimicha.final_project.R
 import sheridan.wrimicha.final_project.benchpress.domain.BenchData
@@ -25,6 +27,11 @@ class BenchInputFragment : Fragment() {
     var year1 :Int=0
     var month1 :Int=0
     var dayOfMonth1 :Int=0
+
+    private enum class EditingState {
+        NEW_BENCH,
+        EXISTING_BENCH
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,6 +62,24 @@ class BenchInputFragment : Fragment() {
 //            else EditingState.NEW_JOG
 
 
+        var bench: BenchEntity? = null
+        val args: BenchInputFragmentArgs by navArgs()
+        val editingState =
+            if (args.benchId > 0) EditingState.EXISTING_BENCH
+            else EditingState.NEW_BENCH
+
+        // If we arrived here with an itemId of >= 0, then we are editing an existing item
+        if (editingState == EditingState.EXISTING_BENCH) {
+            // Request to edit an existing item, whose id was passed in as an argument.
+            // Retrieve that item and populate the UI with its details
+            viewModel.get(args.benchId).observe(viewLifecycleOwner) { benchItem ->
+                binding.weightUsed.setText(benchItem.weight.toString())
+                binding.reps.setText(benchItem.reps)
+                binding.sets.setText(benchItem.sets)
+                bench = benchItem
+            }
+        }
+
         binding.send.setOnClickListener {
 
             if(year1==0 && month1==0 && dayOfMonth1==0){
@@ -79,13 +104,11 @@ class BenchInputFragment : Fragment() {
                 binding.sets.error = required
                 Toast.makeText(context, required, Toast.LENGTH_LONG).show()
             }
-
-                else{
-
-
-    val weight = binding.weightUsed.text.toString()
-    val reps = binding.reps.text.toString()
-    val sets = binding.sets.text.toString()
+            else {
+                val weight = binding.weightUsed.text.toString()
+                val reps = binding.reps.text.toString()
+                val sets = binding.sets.text.toString()
+            }
     //var date = parseDouble(binding.weightUsed.toString())
 
     viewModel.addData(

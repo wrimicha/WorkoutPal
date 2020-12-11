@@ -34,8 +34,8 @@ interface BenchDao {
     @Query("SELECT * FROM bench")
     fun getAll(): LiveData<List<BenchEntity>>
 
-//    @Query("SELECT * FROM bench WHERE id = :id")
-//    suspend fun get(id: Long): BenchEntity
+    @Query("SELECT * FROM bench WHERE id = :id")
+    suspend fun get(id: Long): BenchEntity
 
     @Insert
     suspend fun insert(bench: BenchEntity): Long
