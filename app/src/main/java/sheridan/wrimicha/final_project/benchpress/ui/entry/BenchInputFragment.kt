@@ -111,9 +111,11 @@ class BenchInputFragment : Fragment() {
             }
     //var date = parseDouble(binding.weightUsed.toString())
 
-    viewModel.addData(
-        BenchData(
-            weight, reps, sets, year1,
+    viewModel.submit(
+            weight,
+            reps,
+            sets,
+            year1,
             month1,
             dayOfMonth1,
         )

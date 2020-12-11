@@ -27,23 +27,26 @@ import java.util.*
 @Entity(tableName = "bench")
 data class BenchEntity(
 
-        @PrimaryKey(autoGenerate = true)
-        var id: Long = 0L,
+    @PrimaryKey(autoGenerate = true)
+    var id: Long = 0L,
 
     @ColumnInfo(name = "weight")
-    val weight: String,
+    val weight: Double,
 
     @ColumnInfo(name = "reps")
-    val reps: String,
+    val reps: Double,
 
     @ColumnInfo(name = "sets")
-    val sets: String,
-        @ColumnInfo(name = "year")
-        val year: Int,
-        @ColumnInfo(name = "month")
-        val month: Int,
-        @ColumnInfo(name = "day")
-        val day: Int
+    val sets: Double,
+
+    @ColumnInfo(name = "year")
+    val year: Int,
+
+    @ColumnInfo(name = "month")
+    val month: Int,
+
+    @ColumnInfo(name = "day")
+    val day: Int
 
 //    @ColumnInfo(name = "date")
 //    val date: Date = Date(),

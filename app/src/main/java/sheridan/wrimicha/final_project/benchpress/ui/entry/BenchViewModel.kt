@@ -32,6 +32,18 @@ class BenchViewModel (application: Application) : AndroidViewModel(application) 
         }
     }
 
+    fun submit(
+        id: Long,
+        weight: Double,
+        reps: Double,
+        sets: Double,
+        day: Int,
+        month: Int,
+        year: Int
+    ) {
+        val BenchEntity = BenchEntity(id, weight, reps, sets, day, month, year)
+    }
+
     fun addData(benchEntity: BenchData){
 
         _benchData.value = benchEntity
