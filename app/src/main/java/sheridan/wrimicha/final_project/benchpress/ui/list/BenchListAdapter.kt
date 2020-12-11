@@ -50,9 +50,9 @@ class BenchListAdapter(private val context: Context) : RecyclerView.Adapter<Benc
         val weight : TextView = view.findViewById(R.id.weight)
         val reps : TextView = view.findViewById(R.id.reps)
         val sets : TextView = view.findViewById(R.id.sets)
-        val yearValue : TextView = view.findViewById(R.id.yearValue)
-        val monthValue : TextView = view.findViewById(R.id.monthValue)
-        val dayValue : TextView = view.findViewById(R.id.dayValue)
+        val yearValue : TextView = view.findViewById(R.id.year)
+        val monthValue : TextView = view.findViewById(R.id.month)
+        val dayValue : TextView = view.findViewById(R.id.day)
 
     }
 }
