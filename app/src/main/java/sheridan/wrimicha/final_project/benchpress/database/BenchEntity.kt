@@ -26,18 +26,21 @@ import java.util.*
  */
 @Entity(tableName = "bench")
 data class BenchEntity(
+
+        @PrimaryKey(autoGenerate = true)
+        var id: Long = 0L,
+
     @ColumnInfo(name = "weight")
-    val weight: Double,
+    val weight: String,
 
     @ColumnInfo(name = "reps")
-    val reps: Double,
+    val reps: String,
 
     @ColumnInfo(name = "sets")
-    val sets: Double,
+    val sets: String
 
 //    @ColumnInfo(name = "date")
 //    val date: Date = Date(),
 
-    @PrimaryKey(autoGenerate = true)
-    var id: Long = 0L
+
 )

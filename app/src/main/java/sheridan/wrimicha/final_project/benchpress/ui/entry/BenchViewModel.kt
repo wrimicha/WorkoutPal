@@ -1,15 +1,11 @@
 package sheridan.wrimicha.final_project.benchpress.ui.entry
 
 import android.app.Application
+import android.provider.SyncStateContract.Helpers.insert
 import androidx.lifecycle.*
-import sheridan.wrimicha.final_project.BenchDatabase
-import sheridan.wrimicha.final_project.BenchDao
-import sheridan.wrimicha.final_project.BenchEntity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import sheridan.wrimicha.final_project.JogDao
-import sheridan.wrimicha.final_project.JogData
-import sheridan.wrimicha.final_project.JogDatabase
+import sheridan.wrimicha.final_project.*
 import sheridan.wrimicha.final_project.benchpress.domain.BenchData
 //import sheridan.wrimicha.final_project.benchpress.domain.BenchData
 import java.util.*
@@ -26,17 +22,20 @@ class BenchViewModel (application: Application) : AndroidViewModel(application) 
     private val benchDao: BenchDao =
         BenchDatabase.getInstance(application).benchDao
 
-    fun addData(benchEntity: BenchEntity){
-        viewModelScope.launch(Dispatchers.IO){
+    fun addData(benchEntity: BenchData){
+
+        _benchData.value = benchEntity
+        viewModelScope.launch{
             //val envelopeId = benchDao.insert(benchEntity)
-            benchDao.insert(benchEntity)
-            val benchValues = BenchData(
+            benchDao.insert(BenchEntity(0,benchEntity.weight,benchEntity.reps,benchEntity.sets))
+
+            /*val benchValues = BenchData(
                 benchEntity.weight,
                 benchEntity.reps,
                 benchEntity.sets,
                 benchEntity.id
             )
-            _benchData.value = benchValues
+            _benchData.value = benchValues*/
         }
     }
 }

@@ -10,6 +10,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import sheridan.wrimicha.final_project.BenchEntity
 import sheridan.wrimicha.final_project.R
+import sheridan.wrimicha.final_project.benchpress.domain.BenchData
 import sheridan.wrimicha.final_project.databinding.FragmentBenchInputBinding
 import sheridan.wrimicha.final_project.databinding.FragmentJogInputBinding
 import sheridan.wrimicha.final_project.databinding.FragmentLaunchBinding
@@ -39,12 +40,12 @@ class BenchInputFragment : Fragment() {
     }
 
     private fun save() {
-        val weight = parseDouble(binding.weightUsed.toString())
-        val reps = parseDouble(binding.reps.toString())
-        val sets = parseDouble(binding.sets.toString())
+        val weight = binding.weightUsed.text.toString()
+        val reps = binding.reps.text.toString()
+        val sets = binding.sets.text.toString()
         //var date = parseDouble(binding.weightUsed.toString())
 
-        viewModel.addData(BenchEntity(weight, reps, sets))
+        viewModel.addData(BenchData(weight, reps, sets))
     }
      //   binding.lifecycleOwner = viewLifecycleOwner
       //  binding.viewModel = viewModel

@@ -4,9 +4,8 @@ import java.io.Serializable
 import java.util.*
 
 data class BenchData(
-        var weight: Double,
-        var reps: Double,
-        var sets: Double,
-        var id: Long = 0L
-        //var date: Date
-)
+        var weight: String,
+        var reps: String,
+        var sets: String,
+): Serializable {
+}
