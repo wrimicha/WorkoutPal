@@ -1,17 +1,13 @@
 package sheridan.wrimicha.final_project
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
 import android.view.*
-import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import sheridan.wrimicha.final_project.R
 import sheridan.wrimicha.final_project.databinding.FragmentJogInputBinding
-import sheridan.wrimicha.final_project.databinding.FragmentLaunchBinding
+import java.text.SimpleDateFormat
 import java.util.*
 
 class JogInputFragment : Fragment() {
@@ -34,19 +30,17 @@ class JogInputFragment : Fragment() {
     ): View? {
         binding = FragmentJogInputBinding.inflate(inflater, container, false)
 
-
         val c = Calendar.getInstance()
 val yearCurrent = c.get(Calendar.YEAR)
 val monthCurrent = c.get(Calendar.MONTH)
 val dayOfMonthCurrent = c.get(Calendar.DAY_OF_MONTH)
+
 
         binding.calendarView.setOnDateChangeListener { view, year, month, dayOfMonth ->
             year1=year
             month1=month+1
             dayOfMonth1=dayOfMonth
         }
-
-
 
 
         binding.saveJog.setOnClickListener {
