@@ -3,6 +3,7 @@ package sheridan.wrimicha.final_project.benchpress.ui.entry
 import android.app.Application
 import android.provider.SyncStateContract.Helpers.insert
 import androidx.lifecycle.*
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import sheridan.wrimicha.final_project.*
@@ -41,23 +42,41 @@ class BenchViewModel (application: Application) : AndroidViewModel(application) 
         month: Int,
         year: Int
     ) {
-        val BenchEntity = BenchEntity(id, weight, reps, sets, day, month, year)
-    }
+        val bench = BenchEntity(id, weight, reps, sets, day, month, year)
 
-    fun addData(benchEntity: BenchData){
-
-        _benchData.value = benchEntity
-        viewModelScope.launch{
-            //val envelopeId = benchDao.insert(benchEntity)
-            benchDao.insert(BenchEntity(0,benchEntity.weight,benchEntity.reps,benchEntity.sets,benchEntity.year,benchEntity.month,benchEntity.day))
-
-            /*val benchValues = BenchData(
-                benchEntity.weight,
-                benchEntity.reps,
-                benchEntity.sets,
-                benchEntity.id
-            )
-            _benchData.value = benchValues*/
+        CoroutineScope(Dispatchers.Main.immediate).launch {
+            if (id > 0) {
+                update(bench)
+            } else {
+                insert(bench)
+            }
         }
     }
+
+    private suspend fun insert(bench: BenchEntity): Long {
+        return benchDao.insert(bench)
+    }
+
+    private fun update(bench: BenchEntity) = viewModelScope.launch(Dispatchers.IO) {
+        benchDao.update(bench)
+    }
+
+
+
+//    fun addData(benchEntity: BenchData){
+//
+//        _benchData.value = benchEntity
+//        viewModelScope.launch{
+//            //val envelopeId = benchDao.insert(benchEntity)
+//            benchDao.insert(BenchEntity(0,benchEntity.weight,benchEntity.reps,benchEntity.sets,benchEntity.year,benchEntity.month,benchEntity.day))
+//
+//            /*val benchValues = BenchData(
+//                benchEntity.weight,
+//                benchEntity.reps,
+//                benchEntity.sets,
+//                benchEntity.id
+//            )
+//            _benchData.value = benchValues*/
+//        }
+//    }
 }

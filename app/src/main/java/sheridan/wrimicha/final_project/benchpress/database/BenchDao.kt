@@ -46,6 +46,6 @@ interface BenchDao {
     @Query("DELETE FROM bench")
     suspend fun deleteAll()
 
-//    @Update
-//    suspend fun update(donut: BenchEntity)
+    @Update
+    suspend fun update(donut: BenchEntity)
 }
