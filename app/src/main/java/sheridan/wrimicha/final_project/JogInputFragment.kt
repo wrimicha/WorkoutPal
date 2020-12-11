@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.*
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import sheridan.wrimicha.final_project.R
@@ -56,12 +57,30 @@ val dayOfMonthCurrent = c.get(Calendar.DAY_OF_MONTH)
                 dayOfMonth1 = dayOfMonthCurrent
             }
 
-val jog = JogData(binding.kmsJogged.text.toString(),year1,month1,dayOfMonth1,binding.duration.text.toString())
-            viewModel.submit(jog)
+            if(binding.kmsJogged.text.isEmpty()){
+                val required = getString(R.string.required)
+                binding.kmsJogged.error = required
+                Toast.makeText(context, required, Toast.LENGTH_LONG).show()
+            }
+             else {
+                if(binding.duration.text.isEmpty()){
+                    val required = getString(R.string.required)
+                    binding.duration.error = required
+                    Toast.makeText(context, required, Toast.LENGTH_LONG).show()
+                }
+else{
+                val jog = JogData(
+                    binding.kmsJogged.text.toString(),
+                    year1,
+                    month1,
+                    dayOfMonth1,
+                    binding.duration.text.toString()
+                )
+                viewModel.submit(jog)
 
 
-            findNavController().navigate(R.id.action_jogInputFragment_to_jogOutputFragment)
-        }
+                findNavController().navigate(R.id.action_jogInputFragment_to_jogOutputFragment)
+            }}}
         binding.backIn.setOnClickListener {
             findNavController().navigate(R.id.action_jogInputFragment_to_launchFragment)
 

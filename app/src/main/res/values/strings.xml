@@ -25,4 +25,6 @@
     <string name="sets">Sets:</string>
 <string name="kms">Kms</string>
     <string name="mins">Minutes</string>
+    <string name="required">required</string>
+
 </resources>
