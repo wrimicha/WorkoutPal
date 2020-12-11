@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_launchFragment_to_jogInputFragment"
             app:destination="@id/jogInputFragment" />
+        <action
+            android:id="@+id/action_launchFragment_to_benchInputFragment"
+            app:destination="@id/benchInputFragment" />
     </fragment>
     <fragment
         android:id="@+id/jogInputFragment"
@@ -44,4 +47,8 @@
         android:name="sheridan.wrimicha.final_project.benchpress.ui.list.BenchListFragment"
         android:label="bench_list_fragment"
         tools:layout="@layout/bench_list_fragment" />
+    <fragment
+        android:id="@+id/benchInputFragment"
+        android:name="sheridan.wrimicha.final_project.benchpress.ui.entry.BenchInputFragment"
+        android:label="BenchInputFragment" />
 </navigation>

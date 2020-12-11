@@ -34,7 +34,7 @@
         android:background="@color/white" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/benchPressLaunch"
         android:layout_width="140dp"
         android:layout_height="136dp"
         android:background="@drawable/weightlifting" />

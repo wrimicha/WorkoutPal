@@ -28,6 +28,10 @@ class LaunchFragment : Fragment() {
             findNavController().navigate(R.id.action_launchFragment_to_jogInputFragment)
 
         }
+        binding.benchPressLaunch.setOnClickListener {
+            findNavController().navigate(R.id.action_launchFragment_to_benchInputFragment)
+
+        }
 
         // Inflate the layout for this fragment
 return binding.root
