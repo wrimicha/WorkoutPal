@@ -12,6 +12,7 @@ import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import sheridan.wrimicha.final_project.BenchEntity
+import sheridan.wrimicha.final_project.JogInputFragmentDirections
 import sheridan.wrimicha.final_project.R
 import sheridan.wrimicha.final_project.benchpress.domain.BenchData
 import sheridan.wrimicha.final_project.databinding.FragmentBenchInputBinding
@@ -74,13 +75,17 @@ class BenchInputFragment : Fragment() {
             // Retrieve that item and populate the UI with its details
             viewModel.get(args.benchId).observe(viewLifecycleOwner) { benchItem ->
                 binding.weightUsed.setText(benchItem.weight.toString())
-                binding.reps.setText(benchItem.reps)
-                binding.sets.setText(benchItem.sets)
+                binding.reps.setText(benchItem.reps.toString())
+                binding.sets.setText(benchItem.sets.toString())
                 bench = benchItem
             }
         }
 
         binding.send.setOnClickListener {
+
+            var weight = 0.0
+            var reps = 0.0
+            var sets = 0.0
 
             if(year1==0 && month1==0 && dayOfMonth1==0){
                 year1 = yearCurrent
@@ -105,32 +110,27 @@ class BenchInputFragment : Fragment() {
                 Toast.makeText(context, required, Toast.LENGTH_LONG).show()
             }
             else {
-                val weight = binding.weightUsed.text.toString()
-                val reps = binding.reps.text.toString()
-                val sets = binding.sets.text.toString()
-            }
-    //var date = parseDouble(binding.weightUsed.toString())
-
-    viewModel.submit(
-            weight,
-            reps,
-            sets,
-            year1,
-            month1,
-            dayOfMonth1,
-        )
-    )
-    findNavController().navigate(R.id.action_benchInputFragment_to_benchOutputFragment)
-}
-
+                weight = parseDouble(binding.weightUsed.toString())
+                reps = parseDouble(binding.reps.toString())
+                sets = parseDouble(binding.sets.text.toString())
             }
 
-
+            viewModel.submit(
+                bench?.id ?: 0,
+                weight,
+                reps,
+                sets,
+                year1,
+                month1,
+                dayOfMonth1,
+                )
+                findNavController().navigate(BenchInputFragmentDirections.actionBenchInputFragmentToBenchOutputFragment())
+            }
 
         binding.back.setOnClickListener {
-            findNavController().navigate(R.id.action_benchInputFragment_to_launchFragment)
-
+            findNavController().navigate(BenchInputFragmentDirections.actionBenchInputFragmentToLaunchFragment())
         }
+
         return binding.root
     }
 
