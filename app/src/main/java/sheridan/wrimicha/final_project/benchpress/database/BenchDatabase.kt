@@ -23,7 +23,7 @@ import androidx.room.RoomDatabase
 @Database(entities = [BenchEntity::class], version = 1, exportSchema = false)
 abstract class BenchDatabase: RoomDatabase(){
 
-    abstract val benchDao: BenchDao
+    abstract fun benchDao(): BenchDao
 
     companion object{
 

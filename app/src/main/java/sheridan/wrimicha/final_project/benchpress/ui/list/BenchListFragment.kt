@@ -8,17 +8,14 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
-import sheridan.wrimicha.final_project.HistoryFragmentDirections
-import sheridan.wrimicha.final_project.HistoryRecyclerViewAdapter
-import sheridan.wrimicha.final_project.HistoryViewModel
-import sheridan.wrimicha.final_project.R
+import sheridan.wrimicha.final_project.*
 import sheridan.wrimicha.final_project.databinding.BenchListFragmentBinding
 
 
 class BenchListFragment : Fragment() {
 
     private lateinit var binding: BenchListFragmentBinding
-    private lateinit var adapter: BenchListAdapter
+    //private lateinit var adapter: BenchListAdapter
     private val viewModel : BenchListViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,7 +23,7 @@ class BenchListFragment : Fragment() {
         setHasOptionsMenu(true)
     }
 
-    private val adapter = BenchListAdapter(
+    private var adapter = BenchListAdapter(
         onEdit = { bench ->
             findNavController().navigate(BenchListFragmentDirections.actionBenchListFragmentToBenchInputFragment(bench.id))
         },
@@ -34,6 +31,26 @@ class BenchListFragment : Fragment() {
             viewModel.delete(bench)
         }
     )
+
+    override fun onViewCreated(savedInstanceState: Bundle?) {
+        //val binding = DonutListBinding.bind(view)
+        val donutDao = BenchDatabase.getInstance(requireContext()).benchDao()
+        BenchListViewModel = ViewModelProvider(this, ViewModelFactory(donutDao))
+            .get(DonutListViewModel::class.java)
+
+        listViewModel.donuts.observe(viewLifecycleOwner) { donuts ->
+            adapter.submitList(donuts)
+        }
+
+        recyclerView.adapter = adapter
+
+        binding.fab.setOnClickListener { fabView ->
+            fabView.findNavController().navigate(
+                DonutListFragmentDirections.actionListToEntry()
+            )
+        }
+    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

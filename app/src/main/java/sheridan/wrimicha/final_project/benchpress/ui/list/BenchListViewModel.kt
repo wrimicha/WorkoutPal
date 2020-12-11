@@ -9,10 +9,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import sheridan.wrimicha.final_project.*
 
-class BenchListViewModel(application: Application) :  AndroidViewModel(application) {
+class BenchListViewModel(private val benchDao: BenchDao) : ViewModel() {
 
-    private val benchDao: BenchDao =
-        BenchDatabase.getInstance(application).benchDao
+//     private val benchDao: BenchDao =
+//        BenchDatabase.getInstance(application).benchDao
 
     val history: LiveData<List<BenchEntity>> = benchDao.getAll()
 
