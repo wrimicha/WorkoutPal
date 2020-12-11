@@ -32,7 +32,7 @@ class BenchInputFragment : Fragment() {
         binding.send.setOnClickListener { save() }
 
         binding.back.setOnClickListener {
-            findNavController().navigate(R.id.action_jogInputFragment_to_launchFragment)
+            findNavController().navigate(R.id.action_benchInputFragment_to_launchFragment)
 
         }
         return binding.root

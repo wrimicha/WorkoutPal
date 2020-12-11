@@ -50,5 +50,9 @@
     <fragment
         android:id="@+id/benchInputFragment"
         android:name="sheridan.wrimicha.final_project.benchpress.ui.entry.BenchInputFragment"
-        android:label="BenchInputFragment" />
+        android:label="BenchInputFragment" >
+        <action
+            android:id="@+id/action_benchInputFragment_to_launchFragment"
+            app:destination="@id/launchFragment" />
+    </fragment>
 </navigation>
