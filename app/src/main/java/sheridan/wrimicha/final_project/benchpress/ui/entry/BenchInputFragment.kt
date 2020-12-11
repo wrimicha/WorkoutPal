@@ -48,6 +48,13 @@ class BenchInputFragment : Fragment() {
             dayOfMonth1=dayOfMonth
         }
 
+//        var jog: Jog? = null
+//        val args: JogInputFragmentArgs by navArgs()
+//        val editingState =
+//            if (args.jogId > 0) EditingState.EXISTING_JOG
+//            else EditingState.NEW_JOG
+
+
         binding.send.setOnClickListener {
 
             if(year1==0 && month1==0 && dayOfMonth1==0){

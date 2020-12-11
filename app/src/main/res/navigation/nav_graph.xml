@@ -57,6 +57,10 @@
         <action
             android:id="@+id/action_benchInputFragment_to_benchOutputFragment"
             app:destination="@id/benchOutputFragment" />
+        <argument
+            android:name="benchId"
+            app:argType="long"
+            android:defaultValue="-1L" />
     </fragment><action android:id="@+id/action_global_benchListFragment" app:destination="@id/benchListFragment"/>
     <fragment
         android:id="@+id/benchOutputFragment"
