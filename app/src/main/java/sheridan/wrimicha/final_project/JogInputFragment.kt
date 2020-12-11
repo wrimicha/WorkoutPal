@@ -51,13 +51,13 @@ val dayOfMonthCurrent = c.get(Calendar.DAY_OF_MONTH)
                 dayOfMonth1 = dayOfMonthCurrent
             }
 
-            if(binding.kmsJogged.text.isEmpty()){
+          if(binding.kmsJogged.text.isEmpty()){
                 val required = getString(R.string.required)
                 binding.kmsJogged.error = required
                 Toast.makeText(context, required, Toast.LENGTH_LONG).show()
             }
-             else {
-                if(binding.duration.text.isEmpty()){
+
+               else if(binding.duration.text.isEmpty()){
                     val required = getString(R.string.required)
                     binding.duration.error = required
                     Toast.makeText(context, required, Toast.LENGTH_LONG).show()
@@ -74,7 +74,7 @@ else{
 
 
                 findNavController().navigate(R.id.action_jogInputFragment_to_jogOutputFragment)
-            }}}
+            }}
         binding.backIn.setOnClickListener {
             findNavController().navigate(R.id.action_jogInputFragment_to_launchFragment)
 

@@ -60,19 +60,21 @@ class BenchInputFragment : Fragment() {
                 binding.weightUsed.error = required
                 Toast.makeText(context, required, Toast.LENGTH_LONG).show()
             }
-            else{
-            if(binding.reps.text.isEmpty()){
+
+            else if(binding.reps.text.isEmpty()){
                 val required = getString(R.string.required)
                 binding.reps.error = required
                 Toast.makeText(context, required, Toast.LENGTH_LONG).show()
             }
+            else if(binding.sets.text.isEmpty()){
+                val required = getString(R.string.required)
+                binding.sets.error = required
+                Toast.makeText(context, required, Toast.LENGTH_LONG).show()
+            }
+
                 else{
-if(binding.sets.text.isEmpty()){
-    val required = getString(R.string.required)
-    binding.sets.error = required
-    Toast.makeText(context, required, Toast.LENGTH_LONG).show()
-}
-else {
+
+
     val weight = binding.weightUsed.text.toString()
     val reps = binding.reps.text.toString()
     val sets = binding.sets.text.toString()
@@ -90,7 +92,7 @@ else {
 
             }
 
-        }}
+
 
         binding.back.setOnClickListener {
             findNavController().navigate(R.id.action_benchInputFragment_to_launchFragment)
