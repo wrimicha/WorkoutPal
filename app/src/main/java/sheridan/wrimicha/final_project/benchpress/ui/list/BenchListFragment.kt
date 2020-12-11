@@ -2,48 +2,65 @@ package sheridan.wrimicha.final_project.benchpress.ui.list
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.observe
 import androidx.recyclerview.widget.DividerItemDecoration
+import sheridan.wrimicha.final_project.HistoryRecyclerViewAdapter
+import sheridan.wrimicha.final_project.HistoryViewModel
 import sheridan.wrimicha.final_project.R
 import sheridan.wrimicha.final_project.databinding.BenchListFragmentBinding
 
+
 class BenchListFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = BenchListFragment()
-    }
+    private lateinit var binding: BenchListFragmentBinding
+    private lateinit var adapter: BenchListAdapter
+    private val viewModel : BenchListViewModel by activityViewModels()
 
-    private lateinit var viewModel: BenchListViewModel
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        //return inflater.inflate(R.layout.bench_list_fragment, container, false)
+        binding = BenchListFragmentBinding.inflate(inflater, container, false)
 
-        val binding = BenchListFragmentBinding.inflate(inflater, container, false)
+        // Set the adapter
+        adapter = BenchListAdapter(requireContext())
 
+        with(binding){
+            val divider = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
+            recyclerView.addItemDecoration(divider)
+            recyclerView.adapter = adapter
+        }
 
-        //Add divider
-        val divider = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
-        binding.recyclerView.addItemDecoration(divider)
+        viewModel.history.observe(viewLifecycleOwner){
+            adapter.history = it
 
-        val adapter = BenchListAdapter(requireContext())
-        binding.recyclerView.adapter = adapter
-
-        binding.lifecycleOwner = viewLifecycleOwner
-        binding.viewModel = viewModel
+        }
 
         return binding.root
     }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(BenchListViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.menu_history, menu)
     }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        return when(item.itemId) {
+            R.id.clear -> {
+                viewModel.clear()
+                true
+            }
+            else-> super.onOptionsItemSelected(item)
+        }
+    }
+
 
 }

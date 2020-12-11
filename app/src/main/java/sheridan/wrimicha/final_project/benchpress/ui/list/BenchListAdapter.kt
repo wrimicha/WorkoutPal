@@ -14,13 +14,9 @@ import sheridan.wrimicha.final_project.R
 import sheridan.wrimicha.final_project.databinding.BenchListFragmentBinding
 import sheridan.wrimicha.final_project.dummy.DummyContent.DummyItem
 
-/**
- * [RecyclerView.Adapter] that can display a [DummyItem].
- * TODO: Replace the implementation with code for your data type.
- */
 class BenchListAdapter(private val context: Context) : RecyclerView.Adapter<BenchListAdapter.ViewHolder>() {
 
-    var history: List<Jog>? = null
+    var history: List<BenchEntity>? = null
         set(value){
             field = value
             notifyDataSetChanged()
@@ -28,29 +24,35 @@ class BenchListAdapter(private val context: Context) : RecyclerView.Adapter<Benc
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.fragment_history_item, parent, false)
+            .inflate(R.layout.bench_list_item, parent, false)
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val jog = history!![position]
+        val bench = history!![position]
         holder.idView.text = "${position + 1}."
-        holder.rollValueHistory1.text = jog.value
-        holder.yearValue.text = jog.year.toString()
-        holder.monthValue.text = jog.month.toString()
-        holder.dayValue.text = jog.day.toString()
-        holder.durationValue.text = jog.duration
+        holder.weight.text = bench.weight
+        holder.reps.text =  bench.reps
+        holder.sets.text = bench.sets
+
+
+        holder.yearValue.text = bench.year.toString()
+        holder.monthValue.text = bench.month.toString()
+        holder.dayValue.text = bench.day.toString()
+
     }
 
     override fun getItemCount(): Int = history?.size ?: 0
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val idView: TextView = view.findViewById(R.id.item_number)
-        val contentView: TextView = view.findViewById(R.id.rollValueHistory1)
-        val rollValueHistory1 : TextView = view.findViewById(R.id.rollValueHistory1)
+       // val contentView: TextView = view.findViewById(R.id.rollValueHistory1)
+        val weight : TextView = view.findViewById(R.id.weight)
+        val reps : TextView = view.findViewById(R.id.reps)
+        val sets : TextView = view.findViewById(R.id.sets)
         val yearValue : TextView = view.findViewById(R.id.yearValue)
         val monthValue : TextView = view.findViewById(R.id.monthValue)
         val dayValue : TextView = view.findViewById(R.id.dayValue)
-        val durationValue : TextView = view.findViewById(R.id.durationValue)
+
     }
 }

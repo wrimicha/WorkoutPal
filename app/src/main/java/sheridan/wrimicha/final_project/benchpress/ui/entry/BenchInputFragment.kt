@@ -28,6 +28,7 @@ class BenchInputFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
 
     }
 
@@ -101,6 +102,21 @@ class BenchInputFragment : Fragment() {
         return binding.root
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.menu_jog, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        return when(item.itemId) {
+            R.id.action_history -> {
+                findNavController().navigate(R.id.action_global_benchListFragment)
+                true
+            }
+            else-> super.onOptionsItemSelected(item)
+        }
+    }
 
      //   binding.lifecycleOwner = viewLifecycleOwner
       //  binding.viewModel = viewModel
