@@ -1,6 +1,7 @@
 package sheridan.wrimicha.final_project.benchpress.ui.list
 
 import android.content.Context
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,8 @@ import androidx.navigation.NavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import sheridan.wrimicha.final_project.*
+import sheridan.wrimicha.final_project.benchpress.domain.BenchDataId
+import sheridan.wrimicha.final_project.benchpress.ui.entry.BenchUpdateFragment
 import sheridan.wrimicha.final_project.databinding.BenchListFragmentBinding
 import sheridan.wrimicha.final_project.dummy.DummyContent.DummyItem
 
@@ -44,6 +47,12 @@ class BenchListAdapter(private val context: Context, private val viewModel: Benc
             viewModel.deleteItem(bench.id)
 
         }
+holder.edit.setOnClickListener{
+    val arguments = Bundle()
+    val benchInfo = BenchDataId(bench.id,bench.weight, bench.reps,bench.sets,bench.year,bench.month,bench.day)
+    arguments.putSerializable(BenchUpdateFragment.BENCH_INFO, benchInfo)
+    navController.navigate(R.id.action_benchListFragment_to_benchUpdateFragment,arguments)
+}
 
     }
 
@@ -59,6 +68,7 @@ class BenchListAdapter(private val context: Context, private val viewModel: Benc
         val monthValue : TextView = view.findViewById(R.id.month)
         val dayValue : TextView = view.findViewById(R.id.day)
         val delete: Button = view.findViewById(R.id.deleteBench)
+        val edit: Button = view.findViewById(R.id.editBench)
 
     }
 }

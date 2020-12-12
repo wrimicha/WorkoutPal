@@ -7,6 +7,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import sheridan.wrimicha.final_project.*
 import sheridan.wrimicha.final_project.benchpress.domain.BenchData
+import sheridan.wrimicha.final_project.benchpress.domain.BenchDataId
 //import sheridan.wrimicha.final_project.benchpress.domain.BenchData
 import java.util.*
 
@@ -36,6 +37,12 @@ class BenchViewModel (application: Application) : AndroidViewModel(application) 
                 benchEntity.id
             )
             _benchData.value = benchValues*/
+        }
+    }
+
+    fun update(benchDataId: BenchDataId){
+        viewModelScope.launch{
+            benchDao.update(BenchEntity(benchDataId.id,benchDataId.weight,benchDataId.reps,benchDataId.sets,benchDataId.year,benchDataId.month,benchDataId.day))
         }
     }
 
