@@ -47,6 +47,10 @@ binding.changeDate.setOnClickListener{
     binding.hiding.visibility= VISIBLE
     println("I am here bud")
 }
+
+        binding.back.setOnClickListener{
+            findNavController().navigate(R.id.action_jogUpdateFragment_to_launchFragment)
+        }
         //
 
         binding.updateJog.setOnClickListener{

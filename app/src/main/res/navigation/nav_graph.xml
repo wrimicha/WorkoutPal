@@ -77,5 +77,8 @@
         <action
             android:id="@+id/action_jogUpdateFragment_to_historyFragment"
             app:destination="@id/historyFragment" />
+        <action
+            android:id="@+id/action_jogUpdateFragment_to_launchFragment"
+            app:destination="@id/launchFragment" />
     </fragment>
 </navigation>
