@@ -9,6 +9,7 @@ import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import sheridan.wrimicha.final_project.*
+import sheridan.wrimicha.final_project.benchpress.ViewModelFactory
 import sheridan.wrimicha.final_project.databinding.BenchListFragmentBinding
 
 
@@ -16,7 +17,7 @@ class BenchListFragment : Fragment() {
 
     private lateinit var binding: BenchListFragmentBinding
     //private lateinit var adapter: BenchListAdapter
-    private val viewModel : BenchListViewModel by activityViewModels()
+    private var viewModel : BenchListViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,21 +35,21 @@ class BenchListFragment : Fragment() {
 
     override fun onViewCreated(savedInstanceState: Bundle?) {
         //val binding = DonutListBinding.bind(view)
-        val donutDao = BenchDatabase.getInstance(requireContext()).benchDao()
-        BenchListViewModel = ViewModelProvider(this, ViewModelFactory(donutDao))
-            .get(DonutListViewModel::class.java)
+        val benchDao = BenchDatabase.getInstance(requireContext()).benchDao()
+        viewModel = ViewModelProvider(this, ViewModelFactory(benchDao))
+            .get(BenchListViewModel::class.java)
 
-        listViewModel.donuts.observe(viewLifecycleOwner) { donuts ->
+        viewModel.history.observe(viewLifecycleOwner) { donuts ->
             adapter.submitList(donuts)
         }
 
-        recyclerView.adapter = adapter
-
-        binding.fab.setOnClickListener { fabView ->
-            fabView.findNavController().navigate(
-                DonutListFragmentDirections.actionListToEntry()
-            )
-        }
+//        recyclerView.adapter = adapter
+//
+//        binding.fab.setOnClickListener { fabView ->
+//            fabView.findNavController().navigate(
+//                DonutListFragmentDirections.actionListToEntry()
+//            )
+//        }
     }
 
 
@@ -89,6 +90,5 @@ class BenchListFragment : Fragment() {
             else-> super.onOptionsItemSelected(item)
         }
     }
-
 
 }
