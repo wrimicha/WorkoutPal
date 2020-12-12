@@ -93,4 +93,11 @@
         android:layout_weight="1"
         android:textAppearance="?attr/textAppearanceListItem" />
 
+    <Button
+        android:id="@+id/delete"
+        android:layout_width="23dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@android:drawable/btn_dialog" />
+
 </LinearLayout>

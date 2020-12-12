@@ -29,7 +29,7 @@ class HistoryFragment : Fragment() {
         binding = FragmentHistoryBinding.inflate(inflater, container, false)
 
         // Set the adapter
-        adapter = HistoryRecyclerViewAdapter(requireContext())
+        adapter = HistoryRecyclerViewAdapter(requireContext(),viewModel)
 
         with(binding){
             val divider = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
@@ -39,9 +39,7 @@ class HistoryFragment : Fragment() {
 
         viewModel.history.observe(viewLifecycleOwner){
             adapter.history = it
-
         }
-
         return binding.root
     }
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

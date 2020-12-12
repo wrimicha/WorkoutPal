@@ -17,4 +17,7 @@ interface JogDao {
     @Query("DELETE FROM jogData")
     suspend fun deleteAll()
 
+    @Query("DELETE FROM jogData WHERE id=:id")
+    suspend fun delete(id: Long)
+
 }
