@@ -23,7 +23,7 @@
     <string name="weight">Weight:</string>
     <string name="reps">Reps:</string>
     <string name="sets">Sets:</string>
-<string name="kms">Kms</string>
+    <string name="kms">Kms</string>
     <string name="mins">Minutes</string>
     <string name="required">required</string>
 

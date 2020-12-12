@@ -40,7 +40,11 @@
     <fragment
         android:id="@+id/historyFragment"
         android:name="sheridan.wrimicha.final_project.HistoryFragment"
-        android:label="Jogging Journal" />
+        android:label="Jogging Journal" >
+        <action
+            android:id="@+id/action_historyFragment_to_jogUpdateFragment"
+            app:destination="@id/jogUpdateFragment" />
+    </fragment>
     <action android:id="@+id/action_global_to_history" app:destination="@id/historyFragment" />
     <fragment
         android:id="@+id/benchListFragment"
@@ -66,4 +70,8 @@
             android:id="@+id/action_benchOutputFragment_to_launchFragment"
             app:destination="@id/launchFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/jogUpdateFragment"
+        android:name="sheridan.wrimicha.final_project.JogUpdateFragment"
+        android:label="JogUpdateFragment" />
 </navigation>
