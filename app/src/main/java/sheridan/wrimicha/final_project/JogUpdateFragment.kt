@@ -1,11 +1,14 @@
 package sheridan.wrimicha.final_project
 
+import android.content.Intent.getIntent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.*
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import sheridan.wrimicha.final_project.databinding.FragmentJogUpdateBinding
 import java.lang.StringBuilder
 import java.text.SimpleDateFormat
@@ -38,9 +41,25 @@ class JogUpdateFragment : Fragment() {
             month1=month+1
             dayOfMonth1=dayOfMonth
         }
+        binding.hiding.visibility= GONE
+//Test Code
+binding.changeDate.setOnClickListener{
+    binding.hiding.visibility= VISIBLE
+    println("I am here bud")
+}
+        //
 
         binding.updateJog.setOnClickListener{
+
+            if(year1==0 && month1==0 && dayOfMonth1==0){
+
+                year1=binding.y1.text.toString().toInt()
+                month1=binding.m1.text.toString().toInt()
+                dayOfMonth1=binding.d1.text.toString().toInt()
+            }
+
             viewModel.update(JogDataId(binding.idHolder.text.toString().toLong(),binding.kmsJogged.text.toString(),year1,month1,dayOfMonth1,binding.duration.text.toString()))
+        findNavController().navigate(R.id.action_jogUpdateFragment_to_historyFragment)
         }
 
         return binding.root
