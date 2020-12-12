@@ -21,4 +21,10 @@ class BenchListViewModel(application: Application) :  AndroidViewModel(applicati
         }
     }
 
+    fun deleteItem(id:Long){
+        viewModelScope.launch {
+            benchDao.delete(id)
+        }
+    }
+
 }

@@ -6,6 +6,7 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.observe
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import sheridan.wrimicha.final_project.HistoryRecyclerViewAdapter
 import sheridan.wrimicha.final_project.HistoryViewModel
@@ -31,7 +32,7 @@ class BenchListFragment : Fragment() {
         binding = BenchListFragmentBinding.inflate(inflater, container, false)
 
         // Set the adapter
-        adapter = BenchListAdapter(requireContext())
+        adapter = BenchListAdapter(requireContext(),viewModel,navController = findNavController())
 
         with(binding){
             val divider = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)

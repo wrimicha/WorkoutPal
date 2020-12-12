@@ -4,17 +4,16 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
+import androidx.navigation.NavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import sheridan.wrimicha.final_project.BenchEntity
-import sheridan.wrimicha.final_project.HistoryRecyclerViewAdapter
-import sheridan.wrimicha.final_project.Jog
-import sheridan.wrimicha.final_project.R
+import sheridan.wrimicha.final_project.*
 import sheridan.wrimicha.final_project.databinding.BenchListFragmentBinding
 import sheridan.wrimicha.final_project.dummy.DummyContent.DummyItem
 
-class BenchListAdapter(private val context: Context) : RecyclerView.Adapter<BenchListAdapter.ViewHolder>() {
+class BenchListAdapter(private val context: Context, private val viewModel: BenchListViewModel, private val navController : NavController) : RecyclerView.Adapter<BenchListAdapter.ViewHolder>() {
 
     var history: List<BenchEntity>? = null
         set(value){
@@ -40,6 +39,12 @@ class BenchListAdapter(private val context: Context) : RecyclerView.Adapter<Benc
         holder.monthValue.text = bench.month.toString()
         holder.dayValue.text = bench.day.toString()
 
+        holder.delete.setOnClickListener{
+
+            viewModel.deleteItem(bench.id)
+
+        }
+
     }
 
     override fun getItemCount(): Int = history?.size ?: 0
@@ -53,6 +58,7 @@ class BenchListAdapter(private val context: Context) : RecyclerView.Adapter<Benc
         val yearValue : TextView = view.findViewById(R.id.year)
         val monthValue : TextView = view.findViewById(R.id.month)
         val dayValue : TextView = view.findViewById(R.id.day)
+        val delete: Button = view.findViewById(R.id.deleteBench)
 
     }
 }

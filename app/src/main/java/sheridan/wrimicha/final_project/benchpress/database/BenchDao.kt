@@ -40,8 +40,8 @@ interface BenchDao {
     @Insert
     suspend fun insert(bench: BenchEntity): Long
 
-    @Delete
-    suspend fun delete(donut: BenchEntity)
+    @Query("DELETE FROM bench WHERE id=:id")
+    suspend fun delete(id: Long)
 
     @Query("DELETE FROM bench")
     suspend fun deleteAll()
