@@ -8,50 +8,22 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
-import sheridan.wrimicha.final_project.*
-import sheridan.wrimicha.final_project.benchpress.ViewModelFactory
+import sheridan.wrimicha.final_project.HistoryRecyclerViewAdapter
+import sheridan.wrimicha.final_project.HistoryViewModel
+import sheridan.wrimicha.final_project.R
 import sheridan.wrimicha.final_project.databinding.BenchListFragmentBinding
 
 
 class BenchListFragment : Fragment() {
 
     private lateinit var binding: BenchListFragmentBinding
-    //private lateinit var adapter: BenchListAdapter
-    private var viewModel : BenchListViewModel by activityViewModels()
+    private lateinit var adapter: BenchListAdapter
+    private val viewModel : BenchListViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
     }
-
-    private var adapter = BenchListAdapter(
-        onEdit = { bench ->
-            findNavController().navigate(BenchListFragmentDirections.actionBenchListFragmentToBenchInputFragment(bench.id))
-        },
-        onDelete = { bench ->
-            viewModel.delete(bench)
-        }
-    )
-
-    override fun onViewCreated(savedInstanceState: Bundle?) {
-        //val binding = DonutListBinding.bind(view)
-        val benchDao = BenchDatabase.getInstance(requireContext()).benchDao()
-        viewModel = ViewModelProvider(this, ViewModelFactory(benchDao))
-            .get(BenchListViewModel::class.java)
-
-        viewModel.history.observe(viewLifecycleOwner) { donuts ->
-            adapter.submitList(donuts)
-        }
-
-//        recyclerView.adapter = adapter
-//
-//        binding.fab.setOnClickListener { fabView ->
-//            fabView.findNavController().navigate(
-//                DonutListFragmentDirections.actionListToEntry()
-//            )
-//        }
-    }
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -90,5 +62,6 @@ class BenchListFragment : Fragment() {
             else-> super.onOptionsItemSelected(item)
         }
     }
+
 
 }
