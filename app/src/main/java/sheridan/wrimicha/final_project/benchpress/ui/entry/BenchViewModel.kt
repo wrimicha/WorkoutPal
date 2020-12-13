@@ -14,7 +14,7 @@ import java.util.*
 
 class BenchViewModel (application: Application) : AndroidViewModel(application) {
 
-//    //private val _pets = MutableLiveData
+    //    //private val _pets = MutableLiveData
 //    var benchLiveData: LiveData<BenchEntity>? = null
 //
     private val _benchData: MutableLiveData<BenchData> = MutableLiveData()
@@ -45,7 +45,4 @@ class BenchViewModel (application: Application) : AndroidViewModel(application) 
             benchDao.update(BenchEntity(benchDataId.id,benchDataId.weight,benchDataId.reps,benchDataId.sets,benchDataId.year,benchDataId.month,benchDataId.day))
         }
     }
-
-
-
 }

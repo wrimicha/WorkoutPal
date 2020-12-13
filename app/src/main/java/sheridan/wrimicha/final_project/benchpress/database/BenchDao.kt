@@ -46,5 +46,4 @@ interface BenchDao {
     @Update
     suspend fun update(bench: BenchEntity)
 
-
 }

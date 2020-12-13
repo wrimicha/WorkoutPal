@@ -31,20 +31,17 @@ data class BenchEntity(
     var id: Long = 0L,
 
     @ColumnInfo(name = "weight")
-    val weight: Double,
+    val weight: String,
 
     @ColumnInfo(name = "reps")
-    val reps: Double,
+    val reps: String,
 
     @ColumnInfo(name = "sets")
-    val sets: Double,
-
+    val sets: String,
     @ColumnInfo(name = "year")
     val year: Int,
-
     @ColumnInfo(name = "month")
     val month: Int,
-
     @ColumnInfo(name = "day")
     val day: Int
 
@@ -53,3 +50,4 @@ data class BenchEntity(
 
 
 )
+
