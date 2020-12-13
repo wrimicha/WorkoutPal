@@ -39,9 +39,9 @@ class HistoryRecyclerViewAdapter(private val context: Context,private val viewMo
         holder.monthValue.text = jog.month.toString()
         holder.dayValue.text = jog.day.toString()
         holder.durationValue.text = jog.duration
-holder.delete.setOnClickListener{
-    viewModel.deleteItem(jog.id)
-}
+        holder.delete.setOnClickListener{
+            viewModel.deleteItem(jog.id)
+        }
         holder.edit.setOnClickListener{
             val arguments = Bundle()
             val jogInfo = JogDataId(jog.id,jog.value, jog.year,jog.month,jog.day,jog.duration)
