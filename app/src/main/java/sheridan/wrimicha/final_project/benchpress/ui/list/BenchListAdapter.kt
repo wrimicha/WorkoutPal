@@ -69,6 +69,5 @@ holder.edit.setOnClickListener{
         val dayValue : TextView = view.findViewById(R.id.day)
         val delete: Button = view.findViewById(R.id.deleteBench)
         val edit: Button = view.findViewById(R.id.editBench)
-
     }
 }
