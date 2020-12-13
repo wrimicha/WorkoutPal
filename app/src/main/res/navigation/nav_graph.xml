@@ -49,8 +49,8 @@
     <fragment
         android:id="@+id/benchListFragment"
         android:name="sheridan.wrimicha.final_project.benchpress.ui.list.BenchListFragment"
-        android:label="bench_list_fragment"
-        tools:layout="@layout/bench_list_fragment" >
+        android:label="@string/bench_press_label"
+        tools:layout="@layout/bench_list_fragment">
         <action
             android:id="@+id/action_benchListFragment_to_benchUpdateFragment"
             app:destination="@id/benchUpdateFragment" />

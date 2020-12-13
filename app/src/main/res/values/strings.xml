@@ -26,5 +26,6 @@
     <string name="kms">Kms</string>
     <string name="mins">Minutes</string>
     <string name="required">required</string>
+    <string name="bench_press_label">Bench Press Journal</string>
 
 </resources>
