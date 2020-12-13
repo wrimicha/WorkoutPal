@@ -5,14 +5,13 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import sheridan.wrimicha.final_project.*
 
-class BenchListViewModel(private val benchDao: BenchDao) : ViewModel() {
+class BenchListViewModel(application: Application) :  AndroidViewModel(application) {
 
-//     private val benchDao: BenchDao =
-//        BenchDatabase.getInstance(application).benchDao
+    private val benchDao: BenchDao =
+        BenchDatabase.getInstance(application).benchDao
 
     val history: LiveData<List<BenchEntity>> = benchDao.getAll()
 
@@ -22,8 +21,10 @@ class BenchListViewModel(private val benchDao: BenchDao) : ViewModel() {
         }
     }
 
-    fun delete(bench: BenchEntity) = viewModelScope.launch(Dispatchers.IO) {
-        benchDao.delete(bench)
+    fun deleteItem(id:Long){
+        viewModelScope.launch {
+            benchDao.delete(id)
+        }
     }
 
 }

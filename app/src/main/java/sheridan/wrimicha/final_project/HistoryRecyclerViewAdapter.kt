@@ -1,15 +1,23 @@
 package sheridan.wrimicha.final_project
 
 import android.content.Context
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
+import androidx.fragment.app.viewModels
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import sheridan.wrimicha.final_project.dummy.DummyContent.DummyItem
+import sheridan.wrimicha.final_project.JogUpdateFragment.Companion.JOG_INFO
 
 
-class HistoryRecyclerViewAdapter(private val context: Context) : RecyclerView.Adapter<HistoryRecyclerViewAdapter.ViewHolder>() {
+class HistoryRecyclerViewAdapter(private val context: Context,private val viewModel: HistoryViewModel,private val navController : NavController) : RecyclerView.Adapter<HistoryRecyclerViewAdapter.ViewHolder>() {
 
     var history: List<Jog>? = null
         set(value){
@@ -31,6 +39,15 @@ class HistoryRecyclerViewAdapter(private val context: Context) : RecyclerView.Ad
         holder.monthValue.text = jog.month.toString()
         holder.dayValue.text = jog.day.toString()
         holder.durationValue.text = jog.duration
+holder.delete.setOnClickListener{
+    viewModel.deleteItem(jog.id)
+}
+        holder.edit.setOnClickListener{
+            val arguments = Bundle()
+            val jogInfo = JogDataId(jog.id,jog.value, jog.year,jog.month,jog.day,jog.duration)
+            arguments.putSerializable(JOG_INFO, jogInfo)
+            navController.navigate(R.id.action_historyFragment_to_jogUpdateFragment,arguments)
+        }
     }
 
     override fun getItemCount(): Int = history?.size ?: 0
@@ -43,5 +60,12 @@ class HistoryRecyclerViewAdapter(private val context: Context) : RecyclerView.Ad
         val monthValue : TextView = view.findViewById(R.id.monthValue)
         val dayValue : TextView = view.findViewById(R.id.dayValue)
         val durationValue : TextView = view.findViewById(R.id.durationValue)
+        val delete: Button = view.findViewById(R.id.delete)
+        val edit: Button = view.findViewById(R.id.edit)
     }
+
+
+
+
+
 }

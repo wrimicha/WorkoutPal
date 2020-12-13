@@ -22,5 +22,10 @@ class HistoryViewModel(application: Application) : AndroidViewModel(application)
             jogDao.deleteAll()
         }
     }
+    fun deleteItem(id:Long){
+        viewModelScope.launch {
+            jogDao.delete(id)
+        }
+    }
 
 }

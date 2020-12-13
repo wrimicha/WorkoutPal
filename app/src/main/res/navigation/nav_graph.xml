@@ -40,7 +40,11 @@
     <fragment
         android:id="@+id/historyFragment"
         android:name="sheridan.wrimicha.final_project.HistoryFragment"
-        android:label="Jogging Journal" />
+        android:label="Jogging Journal" >
+        <action
+            android:id="@+id/action_historyFragment_to_jogUpdateFragment"
+            app:destination="@id/jogUpdateFragment" />
+    </fragment>
     <action android:id="@+id/action_global_to_history" app:destination="@id/historyFragment" />
     <fragment
         android:id="@+id/benchListFragment"
@@ -48,8 +52,8 @@
         android:label="bench_list_fragment"
         tools:layout="@layout/bench_list_fragment" >
         <action
-            android:id="@+id/action_benchListFragment_to_benchInputFragment"
-            app:destination="@id/benchInputFragment" />
+            android:id="@+id/action_benchListFragment_to_benchUpdateFragment"
+            app:destination="@id/benchUpdateFragment" />
     </fragment>
     <fragment
         android:id="@+id/benchInputFragment"
@@ -61,10 +65,6 @@
         <action
             android:id="@+id/action_benchInputFragment_to_benchOutputFragment"
             app:destination="@id/benchOutputFragment" />
-        <argument
-            android:name="benchId"
-            app:argType="long"
-            android:defaultValue="-1L" />
     </fragment><action android:id="@+id/action_global_benchListFragment" app:destination="@id/benchListFragment"/>
     <fragment
         android:id="@+id/benchOutputFragment"
@@ -73,5 +73,27 @@
         <action
             android:id="@+id/action_benchOutputFragment_to_launchFragment"
             app:destination="@id/launchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/jogUpdateFragment"
+        android:name="sheridan.wrimicha.final_project.JogUpdateFragment"
+        android:label="JogUpdateFragment" >
+        <action
+            android:id="@+id/action_jogUpdateFragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
+        <action
+            android:id="@+id/action_jogUpdateFragment_to_launchFragment"
+            app:destination="@id/launchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/benchUpdateFragment"
+        android:name="sheridan.wrimicha.final_project.benchpress.ui.entry.BenchUpdateFragment"
+        android:label="BenchUpdateFragment" >
+        <action
+            android:id="@+id/action_benchUpdateFragment_to_launchFragment"
+            app:destination="@id/launchFragment" />
+        <action
+            android:id="@+id/action_benchUpdateFragment_to_benchListFragment"
+            app:destination="@id/benchListFragment" />
     </fragment>
 </navigation>

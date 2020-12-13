@@ -1,0 +1,6 @@
+package sheridan.wrimicha.final_project
+
+import java.io.Serializable
+
+data class JogDataId(var id:Long,var kms : String, var year:Int, var month: Int, var day: Int, var duration: String) : Serializable {
+}

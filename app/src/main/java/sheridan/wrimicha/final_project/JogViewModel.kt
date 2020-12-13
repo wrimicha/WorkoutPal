@@ -18,5 +18,13 @@ class JogViewModel (application: Application) : AndroidViewModel(application) {
         viewModelScope.launch{
         jogDao.insert(Jog(0,jogInfoData.kms,jogInfoData.year,jogInfoData.month,jogInfoData.day,jogInfoData.duration))
         }
+
     }
+
+    fun update(jogDataId: JogDataId){
+        viewModelScope.launch{
+            jogDao.update(Jog(jogDataId.id,jogDataId.kms,jogDataId.year,jogDataId.month,jogDataId.day,jogDataId.duration))
+        }
+    }
+
 }
