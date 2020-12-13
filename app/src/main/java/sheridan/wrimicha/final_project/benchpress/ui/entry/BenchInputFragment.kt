@@ -8,11 +8,8 @@ import android.view.*
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import sheridan.wrimicha.final_project.BenchEntity
-import sheridan.wrimicha.final_project.JogInputFragmentDirections
 import sheridan.wrimicha.final_project.R
 import sheridan.wrimicha.final_project.benchpress.domain.BenchData
 import sheridan.wrimicha.final_project.databinding.FragmentBenchInputBinding
@@ -28,11 +25,6 @@ class BenchInputFragment : Fragment() {
     var year1 :Int=0
     var month1 :Int=0
     var dayOfMonth1 :Int=0
-
-    private enum class EditingState {
-        NEW_BENCH,
-        EXISTING_BENCH
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,36 +48,7 @@ class BenchInputFragment : Fragment() {
             dayOfMonth1=dayOfMonth
         }
 
-//        var jog: Jog? = null
-//        val args: JogInputFragmentArgs by navArgs()
-//        val editingState =
-//            if (args.jogId > 0) EditingState.EXISTING_JOG
-//            else EditingState.NEW_JOG
-
-
-        var bench: BenchEntity? = null
-        val args: BenchInputFragmentArgs by navArgs()
-        val editingState =
-            if (args.benchId > 0) EditingState.EXISTING_BENCH
-            else EditingState.NEW_BENCH
-
-        // If we arrived here with an itemId of >= 0, then we are editing an existing item
-        if (editingState == EditingState.EXISTING_BENCH) {
-            // Request to edit an existing item, whose id was passed in as an argument.
-            // Retrieve that item and populate the UI with its details
-            viewModel.get(args.benchId).observe(viewLifecycleOwner) { benchItem ->
-                binding.weightUsed.setText(benchItem.weight.toString())
-                binding.reps.setText(benchItem.reps.toString())
-                binding.sets.setText(benchItem.sets.toString())
-                bench = benchItem
-            }
-        }
-
         binding.send.setOnClickListener {
-
-            var weight = 0.0
-            var reps = 0.0
-            var sets = 0.0
 
             if(year1==0 && month1==0 && dayOfMonth1==0){
                 year1 = yearCurrent
@@ -109,28 +72,33 @@ class BenchInputFragment : Fragment() {
                 binding.sets.error = required
                 Toast.makeText(context, required, Toast.LENGTH_LONG).show()
             }
-            else {
-                weight = parseDouble(binding.weightUsed.toString())
-                reps = parseDouble(binding.reps.toString())
-                sets = parseDouble(binding.sets.text.toString())
-            }
 
-            viewModel.submit(
-                bench?.id ?: 0,
-                weight,
-                reps,
-                sets,
-                year1,
-                month1,
-                dayOfMonth1,
+            else{
+
+
+                val weight = binding.weightUsed.text.toString()
+                val reps = binding.reps.text.toString()
+                val sets = binding.sets.text.toString()
+                //var date = parseDouble(binding.weightUsed.toString())
+
+                viewModel.addData(
+                    BenchData(
+                        weight, reps, sets, year1,
+                        month1,
+                        dayOfMonth1,
+                    )
                 )
-                findNavController().navigate(BenchInputFragmentDirections.actionBenchInputFragmentToBenchOutputFragment())
+                findNavController().navigate(R.id.action_benchInputFragment_to_benchOutputFragment)
             }
 
-        binding.back.setOnClickListener {
-            findNavController().navigate(BenchInputFragmentDirections.actionBenchInputFragmentToLaunchFragment())
         }
 
+
+
+        binding.back.setOnClickListener {
+            findNavController().navigate(R.id.action_benchInputFragment_to_launchFragment)
+
+        }
         return binding.root
     }
 
@@ -150,6 +118,6 @@ class BenchInputFragment : Fragment() {
         }
     }
 
-     //   binding.lifecycleOwner = viewLifecycleOwner
-      //  binding.viewModel = viewModel
+    //   binding.lifecycleOwner = viewLifecycleOwner
+    //  binding.viewModel = viewModel
 }
