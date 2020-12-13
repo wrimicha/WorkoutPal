@@ -122,8 +122,8 @@
                 android:id="@+id/back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Back"
-                app:icon="@drawable/abc_vector_test" />
+                android:text="Home"
+                app:icon="@drawable/ic_baseline_home_24" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
