@@ -146,7 +146,7 @@
 
                 <CalendarView
                     android:id="@+id/calendarView2"
-                    android:layout_width="278dp"
+                    android:layout_width="380dp"
                     android:layout_height="308dp"
                     android:layout_marginBottom="36dp"
                     android:foregroundGravity="center_horizontal" />
