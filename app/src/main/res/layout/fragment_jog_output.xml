@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="56dp"
-            android:text="Kms Jogged:"
+            android:text="@string/kms_jogged_2"
             android:textSize="24sp" />
 
         <TextView
@@ -41,7 +41,7 @@
             android:id="@+id/textView9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Duration:"
+            android:text="@string/duration_in_minutes"
             android:textSize="24sp" />
 
         <TextView
@@ -62,7 +62,7 @@
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Date:"
+            android:text="@string/date_label"
             android:textSize="24sp" />
 
         <TextView

@@ -31,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="56dp"
-            android:text="Weight Used:"
+            android:text="@string/weight_used_in_lbs"
             android:textSize="24sp" />
 
         <TextView
@@ -52,7 +52,7 @@
             android:id="@+id/textView9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Reps:"
+            android:text="@string/number_of_reps"
             android:textSize="24sp" />
 
         <TextView
@@ -73,7 +73,7 @@
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sets:"
+            android:text="@string/number_of_sets"
             android:textSize="24sp" />
 
         <TextView

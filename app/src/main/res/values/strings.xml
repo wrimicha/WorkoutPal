@@ -27,5 +27,11 @@
     <string name="mins">Minutes</string>
     <string name="required">required</string>
     <string name="bench_press_label">Bench Press Journal</string>
+    <string name="weight_used_in_lbs">Weight Used in Lbs:</string>
+    <string name="number_of_reps">Number of Reps:</string>
+    <string name="number_of_sets">Number of Sets:</string>
+    <string name="duration_in_minutes">Duration in Minutes:</string>
+    <string name="kms_jogged_2">Kms Jogged:</string>
+    <string name="date_label">Date:</string>
 
 </resources>
