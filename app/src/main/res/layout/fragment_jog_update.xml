@@ -21,14 +21,13 @@
             android:id="@+id/coco">
 
             <TextView
-                android:id="@+id/textView22"
+                android:id="@+id/distanceLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="106dp"
                 android:gravity="center_horizontal"
                 android:text="Distance:"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
             <TextView
                 android:id="@+id/idHolder"
@@ -46,8 +45,18 @@
                 android:text="@{jogInfo.kms}"
                 android:textAlignment="center" />
 
+            <TextView
+                android:id="@+id/dateLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:gravity="center_horizontal"
+                android:text="Date:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
             <TableLayout
                 android:layout_width="wrap_content"
+                android:layout_marginTop="20dp"
                 android:layout_height="wrap_content">
 
                 <TableRow
@@ -99,11 +108,13 @@
                 android:id="@+id/changeDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:text="Change Date" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
                 android:id="@+id/hiding">
             <CalendarView
                 android:id="@+id/cView"
@@ -112,19 +123,20 @@
                 android:visibility="visible" />
         </LinearLayout>
             <TextView
-                android:id="@+id/textView23"
+                android:id="@+id/durationLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="40dp"
                 android:gravity="center_horizontal"
                 android:text="Duration:"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
             <EditText
                 android:id="@+id/duration"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:layout_marginTop="20dp"
                 android:text = "@{jogInfo.duration}"
                 android:inputType="number"
                 android:textAlignment="center" />
@@ -133,6 +145,7 @@
                 android:id="@+id/updateJog"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:text="Update"
                 app:icon="@android:drawable/ic_input_add" />
 
@@ -140,6 +153,8 @@
                 android:id="@+id/back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="40dp"
                 android:text="Home"
                 app:icon="@drawable/ic_baseline_home_24" />
 

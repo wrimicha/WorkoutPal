@@ -18,6 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:layout_marginBottom="20dp"
             android:text="Back"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
@@ -83,7 +84,7 @@
 
         <CalendarView
             android:id="@+id/calendarView2"
-            android:layout_width="278dp"
+            android:layout_width="358dp"
             android:layout_height="308dp"
             android:layout_marginTop="20dp"
             android:foregroundGravity="center"
