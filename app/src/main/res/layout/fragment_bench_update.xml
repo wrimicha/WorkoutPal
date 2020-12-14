@@ -22,6 +22,7 @@
                 android:id="@+id/idHolderBench"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:text="@{Long.toString(benchInfo.id)}"
                 android:visibility="gone" />
 
@@ -87,6 +88,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:text="Date:" />
 
             <TableLayout
@@ -110,6 +112,7 @@
                         android:id="@+id/textView25"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:text="/" />
 
                     <TextView
