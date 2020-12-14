@@ -69,7 +69,7 @@
     <fragment
         android:id="@+id/benchOutputFragment"
         android:name="sheridan.wrimicha.final_project.benchpress.ui.entry.BenchOutputFragment"
-        android:label="BenchOutputFragment" >
+        android:label="Bench Output Fragment">
         <action
             android:id="@+id/action_benchOutputFragment_to_launchFragment"
             app:destination="@id/launchFragment" />
@@ -77,7 +77,7 @@
     <fragment
         android:id="@+id/jogUpdateFragment"
         android:name="sheridan.wrimicha.final_project.JogUpdateFragment"
-        android:label="JogUpdateFragment" >
+        android:label="Update Jog Data">
         <action
             android:id="@+id/action_jogUpdateFragment_to_historyFragment"
             app:destination="@id/historyFragment" />
@@ -88,7 +88,7 @@
     <fragment
         android:id="@+id/benchUpdateFragment"
         android:name="sheridan.wrimicha.final_project.benchpress.ui.entry.BenchUpdateFragment"
-        android:label="BenchUpdateFragment" >
+        android:label="Update Bench Data">
         <action
             android:id="@+id/action_benchUpdateFragment_to_launchFragment"
             app:destination="@id/launchFragment" />
