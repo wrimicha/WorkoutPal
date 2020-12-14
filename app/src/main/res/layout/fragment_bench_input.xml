@@ -37,7 +37,7 @@
             android:layout_height="45dp"
             android:layout_marginTop="32dp"
             android:ems="10"
-            android:hint="Weight Used:"
+            android:hint="Weight Used: (lbs)"
             android:inputType="numberDecimal"
             android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
