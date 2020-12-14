@@ -38,10 +38,13 @@ data class BenchEntity(
 
     @ColumnInfo(name = "sets")
     val sets: String,
+
     @ColumnInfo(name = "year")
     val year: Int,
+
     @ColumnInfo(name = "month")
     val month: Int,
+
     @ColumnInfo(name = "day")
     val day: Int
 

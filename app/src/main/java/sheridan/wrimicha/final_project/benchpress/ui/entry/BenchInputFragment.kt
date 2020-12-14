@@ -94,7 +94,6 @@ class BenchInputFragment : Fragment() {
         }
 
 
-
         binding.back.setOnClickListener {
             findNavController().navigate(R.id.action_benchInputFragment_to_launchFragment)
 
