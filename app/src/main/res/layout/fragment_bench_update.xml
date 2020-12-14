@@ -25,11 +25,41 @@
                 android:text="@{Long.toString(benchInfo.id)}"
                 android:visibility="gone" />
 
+            <EditText
+                android:id="@+id/weightUsed"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:text="@{benchInfo.weight}"
+                android:layout_marginTop="56dp"
+                android:textAlignment="center" />
+
+            <EditText
+                android:id="@+id/reps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:text="@{benchInfo.reps}"
+                android:textAlignment="center" />
+
+            <EditText
+                android:id="@+id/sets"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:text="@{benchInfo.sets}"
+                android:textAlignment="center" />
+
             <TextView
                 android:id="@+id/textView23"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="56dp"
+                android:layout_marginTop="20dp"
                 android:text="Date:" />
 
             <TableLayout
@@ -74,53 +104,26 @@
                 </TableRow>
             </TableLayout>
 
-            <EditText
-                android:id="@+id/weightUsed"
-                android:layout_width="wrap_content"
-                android:layout_height="45dp"
-                android:ems="10"
-                android:inputType="numberDecimal"
-                android:text="@{benchInfo.weight}"
-                android:textAlignment="center" />
-
-            <EditText
-                android:id="@+id/sets"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:ems="10"
-                android:inputType="numberDecimal"
-                android:text="@{benchInfo.sets}"
-                android:textAlignment="center" />
-
-            <EditText
-                android:id="@+id/reps"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:ems="10"
-                android:inputType="numberDecimal"
-                android:text="@{benchInfo.reps}"
-                android:textAlignment="center" />
-
             <Button
                 android:id="@+id/dateChange"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:text="Change Date" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/hid">
-            <CalendarView
-                android:id="@+id/calendarView2"
-                android:layout_width="278dp"
-                android:layout_height="308dp"
-                android:layout_marginBottom="36dp"
-                android:foregroundGravity="center"
-                />
+
+                <CalendarView
+                    android:id="@+id/calendarView2"
+                    android:layout_width="278dp"
+                    android:layout_height="308dp"
+                    android:layout_marginBottom="36dp"
+                    android:foregroundGravity="center" />
             </LinearLayout>
+
             <Button
                 android:id="@+id/back"
                 android:layout_width="wrap_content"
