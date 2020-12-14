@@ -25,31 +25,58 @@
                 android:text="@{Long.toString(benchInfo.id)}"
                 android:visibility="gone" />
 
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="106dp"
+                android:gravity="center_horizontal"
+                android:text="Weight Used (Lbs):"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
             <EditText
                 android:id="@+id/weightUsed"
                 android:layout_width="wrap_content"
                 android:layout_height="45dp"
                 android:ems="10"
+                android:layout_marginTop="6dp"
                 android:inputType="numberDecimal"
                 android:text="@{benchInfo.weight}"
-                android:layout_marginTop="56dp"
                 android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/textView26"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center_horizontal"
+                android:text="Reps Completed:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
             <EditText
                 android:id="@+id/reps"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="6dp"
                 android:ems="10"
                 android:inputType="numberDecimal"
                 android:text="@{benchInfo.reps}"
                 android:textAlignment="center" />
 
+            <TextView
+                android:id="@+id/textView27"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center_horizontal"
+                android:text="Sets Completed:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
             <EditText
                 android:id="@+id/sets"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="5dp"
                 android:ems="10"
                 android:inputType="numberDecimal"
                 android:text="@{benchInfo.sets}"
@@ -112,32 +139,34 @@
                 android:text="Change Date" />
 
             <LinearLayout
+                android:id="@+id/hid"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/hid">
+                android:gravity="center_horizontal">
 
                 <CalendarView
                     android:id="@+id/calendarView2"
                     android:layout_width="278dp"
                     android:layout_height="308dp"
                     android:layout_marginBottom="36dp"
-                    android:foregroundGravity="center" />
+                    android:foregroundGravity="center_horizontal" />
             </LinearLayout>
+
+            <Button
+                android:id="@+id/updateBench"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Update" />
 
             <Button
                 android:id="@+id/back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:layout_marginBottom="20dp"
                 android:text="Home"
                 app:icon="@drawable/ic_baseline_home_24"/>
-
-            <Button
-                android:id="@+id/updateBench"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="36dp"
-                android:text="Update" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
