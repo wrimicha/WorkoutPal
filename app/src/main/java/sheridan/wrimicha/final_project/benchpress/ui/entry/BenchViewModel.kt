@@ -29,14 +29,6 @@ class BenchViewModel (application: Application) : AndroidViewModel(application) 
         viewModelScope.launch{
             //val envelopeId = benchDao.insert(benchEntity)
             benchDao.insert(BenchEntity(0,benchEntity.weight,benchEntity.reps,benchEntity.sets,benchEntity.year,benchEntity.month,benchEntity.day))
-
-            /*val benchValues = BenchData(
-                benchEntity.weight,
-                benchEntity.reps,
-                benchEntity.sets,
-                benchEntity.id
-            )
-            _benchData.value = benchValues*/
         }
     }
 
